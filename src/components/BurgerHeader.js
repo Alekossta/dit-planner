@@ -41,7 +41,6 @@ import { Link as ChakraLink } from '@chakra-ui/react'
             onClick={isOpen ? onClose : onOpen}
           />
   
-          {/* Links (shown on desktop) */}
           <HStack as="nav" spacing={4} display={{ base: 'none', md: 'flex' }}>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner'  style={linkStyle("/dit-planner")}>
                     <Text fontSize={['xs', 'xs', 'lg']}   px={0}>Home</Text>
@@ -64,7 +63,6 @@ import { Link as ChakraLink } from '@chakra-ui/react'
           </HStack>
         </Flex>
   
-        {/* Hamburger menu items (shown on mobile) */}
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as="nav" spacing={4}>
