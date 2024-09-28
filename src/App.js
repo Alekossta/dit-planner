@@ -123,7 +123,7 @@ function App() {
 
   const passedCourseState = (course) =>
   {
-    return course.hasCourse && !(course.isActive) && course.grade >= 5
+    return course.hasCourse && course.grade >= 5
   }
 
   const noCurrentComponent = () => {
