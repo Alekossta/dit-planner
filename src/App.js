@@ -6,7 +6,6 @@ import { Settings } from './pages/Settings';
 import { MyCoursesShower } from './pages/MyCoursesShower';
 import { coursesData } from "./coursesData";
 import { useState,useEffect  } from "react";
-import Header from './components/Header';
 import { AllCourses } from './pages/AllCourses';
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink, Text } from '@chakra-ui/react'
