@@ -21,7 +21,10 @@ export function Home({courses})
     const [ectsPassedSum, setEctsPassedSum] = useState(0);
     const [ectsPlannedSum, setEctsPlannedSum] = useState(0);
     const [currentGrade, setCurrentGrade] = useState(0);
-    const [currentCount, setCurrentCount] = useState(0);
+    const [gpPassed, setGpPassed] = useState(0);
+    const [gpPlanned, setGpPlanned] = useState(0);
+    const [ypPassed, setYpPassed] = useState(0);
+    const [ypPlanned, setYpPlanned] = useState(0);
 
     useEffect(()=>{
         calculateStats();
@@ -34,16 +37,42 @@ export function Home({courses})
         let plannedEcts = 0;
         let weightedSum = 0;
         let currentCountSum = 0;
+        let gpPassedSum = 0;
+        let gpPlannedSum = 0;
+        let ypPassedSum = 0;
+        let ypPlannedSum = 0;
         courses.forEach(course => {
+            // passed course
             if(course.grade>=5)
             {
                 passedCount++;
                 passedEcts+=course.ECTS;
                 weightedSum += course.ECTS * course.grade;
+
+                if(course.category==="ΓΠ")
+                {
+                    gpPassedSum++;
+                }
+
+                if(course.category==="ΥΜ")
+                {
+                    ypPassedSum++;
+                }
             }
+            // planed course
             if(course.hasCourse)
             {
                 plannedEcts+=course.ECTS;
+
+                if(course.category==="ΓΠ")
+                {
+                    gpPlannedSum++;
+                }
+
+                if(course.category==="ΥΜ")
+                {
+                    ypPlannedSum++;
+                }
             }
             if(course.isActive)
             {
@@ -52,66 +81,55 @@ export function Home({courses})
         });
         setEctsPassedSum(passedEcts);
         setEctsPlannedSum(plannedEcts);
+        setGpPassed(gpPassedSum);
+        setGpPlanned(gpPlannedSum);
+        setYpPassed(ypPassedSum);
+        setYpPlanned(ypPlannedSum);
         if(passedEcts !== 0)
         {
             setCurrentGrade(weightedSum / passedEcts);
         }
-        setCurrentCount(currentCountSum);
     }
     return (
-    <Flex align="center" justifyContent="center" flexDirection={"column"} w="100%" h="100%">
-        <Text fontSize={"3xl"} m={2}>Progress</Text>
-        <CircularProgress value={ectsPassedSum} color='blue.400'  size='250px' thickness='5px' min={0} max={240}>
+    <Flex align="center" justifyContent="center" flexDirection={"column"} w="100%" h="100%" mb={4}>
+        <CircularProgress value={ectsPassedSum} color='blue.400'  size='250px' thickness='5px' min={0} max={240} mt={3}>
             <CircularProgressLabel>{ectsPassedSum+" "}ects</CircularProgressLabel>
         </CircularProgress>
-        <Card>
+        <Card w={"30%"}>
             <CardHeader>
-                <Heading size='md'>Overview</Heading>
+                <Heading size='lg'>Your Stats</Heading>
             </CardHeader>
 
             <CardBody>
                 <Stack divider={<StackDivider />} spacing='4'>
                 <Box>
+                    <Heading size='md' mb={5}>Passed Overview</Heading>
                     <Stat>
                         <StatLabel>Average</StatLabel>
                         <StatNumber>{currentGrade.toFixed(2)}</StatNumber>
-                        <StatHelpText>Your grade in {" "}
-                            <ChakraLink as={ReactRouterLink} to='/dit-planner/passed' color='blue.500'>
-                                passed courses
-                            </ChakraLink>
-                        </StatHelpText>
                     </Stat>
-                </Box>
-                <Box>
                     <Stat>
-                        <StatLabel>Current Classes</StatLabel>
-                        <StatNumber>{currentCount}</StatNumber>
-                        <StatHelpText>Number of{" "}
-                            <ChakraLink as={ReactRouterLink} to='/dit-planner/current' color='blue.500'>
-                                current courses
-                            </ChakraLink>
-                            {" "}you are currently attending.
-                        </StatHelpText>
+                        <StatLabel>Passed Γενικης Παιδειας</StatLabel>
+                        <StatNumber>{gpPassed}/3</StatNumber>
+                    </Stat>
+                    <Stat>
+                        <StatLabel>Passed Υποχρεωτικά</StatLabel>
+                        <StatNumber>{ypPassed}/18</StatNumber>
                     </Stat>
                 </Box>
                 <Box>
+                    <Heading size='md' mb={5}>Planned Overview</Heading>
                     <Stat>
                         <StatLabel>Planned ECTS</StatLabel>
                         <StatNumber>{ectsPlannedSum}/240</StatNumber>
-                        <StatHelpText>Your planned sum of ECTS
-                            in{" "}
-                            <ChakraLink as={ReactRouterLink} to='/dit-planner/passed' color='blue.500'>
-                                passed courses
-                            </ChakraLink>
-                            {" "}and{" "}
-                            <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
-                                planned courses.
-                            </ChakraLink>                            
-                            {" "}Not enough? Check{" "}
-                            <ChakraLink as={ReactRouterLink} to='/dit-planner/all' color='blue.500'>
-                                all the courses
-                            </ChakraLink>     
-                        </StatHelpText>
+                    </Stat>
+                    <Stat>
+                        <StatLabel>Planned Γενικης Παιδειας</StatLabel>
+                        <StatNumber>{gpPlanned}/3</StatNumber>
+                    </Stat>
+                    <Stat>
+                        <StatLabel>Planned Υποχρεωτικά</StatLabel>
+                        <StatNumber>{ypPlanned}/18</StatNumber>
                     </Stat>
                 </Box>
                 </Stack>
