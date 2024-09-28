@@ -1,4 +1,4 @@
-import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue, Text } from '@chakra-ui/react';
 import { Link as ReactRouterLink, useLocation } from 'react-router-dom'
 import { Link as ChakraLink } from '@chakra-ui/react'
 
@@ -19,25 +19,25 @@ const Header = () => {
 
 
     return (
-        <Box bg="blue.500" p={4} color="white">
+        <Box bg="blue.500" color="white" py={1} px={0}>
             <Flex align="center">
                 <ChakraLink as={ReactRouterLink} to='/dit-planner'  style={linkStyle("/dit-planner")}>
-                    Home
+                    <Text fontSize={['xs', 'xs', 'lg']}   px={0}>Home</Text>
                 </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/current'  style={linkStyle("/dit-planner/current")}>
-                    Current Courses
+                    <Text fontSize={['xs', 'xs', 'lg']}   px={0}>Current Courses</Text>
                 </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/passed'  style={linkStyle("/dit-planner/passed")}>
-                    Passed Courses
+                    <Text fontSize={['xs', 'xs', 'lg']}   px={0}>Passed Courses</Text>
                 </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/planned'  style={linkStyle("/dit-planner/planned")}>
-                    Planned Courses
+                    <Text fontSize={['xs', 'xs', 'lg']}   px={0}>Planned Courses</Text>
                 </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/all'  style={linkStyle("/dit-planner/all")}>
-                    All Courses
+                    <Text fontSize={['xs', 'xs', 'lg']} px={0}>All Courses</Text>
                 </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/settings'  style={linkStyle("/dit-planner/settings")}>
-                    Settings
+                    <Text fontSize={['xs', 'xs', 'lg']}  px={0}>Settings</Text>
                 </ChakraLink>
             </Flex>
         </Box>

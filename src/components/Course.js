@@ -7,13 +7,13 @@ export function Course({course, onAdd})
         onAdd(course);
     }
     return (<Tr key={course.code} _hover={{ bg: "green.100", cursor: "pointer" } } onClick={onClickButton}>
-        <Td>
+        <Td  fontSize={['xs', 'xs', 'lg']}  px={0.25}>
             <Icon as={ChevronRightIcon} />
             {course.name}
         </Td>
-        <Td>{course.code}</Td>
-        <Td>{course.ECTS}</Td>
-        <Td>{course.category}</Td>
-        <Td>{course.semester}</Td>
+        <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>{course.code}</Td>
+        <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>{course.ECTS}</Td>
+        <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>{course.category}</Td>
+        <Td fontSize={['xs', 'xs', 'lg']} px={0.25}>{course.semester}</Td>
     </Tr>)
 }

@@ -95,45 +95,46 @@ export function Home({courses})
         <CircularProgress value={ectsPassedSum} color='blue.400'  size='250px' thickness='5px' min={0} max={240} mt={3}>
             <CircularProgressLabel>{ectsPassedSum+" "}ects</CircularProgressLabel>
         </CircularProgress>
-        <Card w={"30%"}>
-            <CardHeader>
-                <Heading size='lg'>Your Stats</Heading>
-            </CardHeader>
-
-            <CardBody>
-                <Stack divider={<StackDivider />} spacing='4'>
-                <Box>
-                    <Heading size='md' mb={5}>Passed Overview</Heading>
-                    <Stat>
-                        <StatLabel>Average</StatLabel>
-                        <StatNumber>{currentGrade.toFixed(2)}</StatNumber>
-                    </Stat>
-                    <Stat>
-                        <StatLabel>Passed Γενικης Παιδειας</StatLabel>
-                        <StatNumber>{gpPassed}/3</StatNumber>
-                    </Stat>
-                    <Stat>
-                        <StatLabel>Passed Υποχρεωτικά</StatLabel>
-                        <StatNumber>{ypPassed}/18</StatNumber>
-                    </Stat>
-                </Box>
-                <Box>
-                    <Heading size='md' mb={5}>Planned Overview</Heading>
-                    <Stat>
-                        <StatLabel>Planned ECTS</StatLabel>
-                        <StatNumber>{ectsPlannedSum}/240</StatNumber>
-                    </Stat>
-                    <Stat>
-                        <StatLabel>Planned Γενικης Παιδειας</StatLabel>
-                        <StatNumber>{gpPlanned}/3</StatNumber>
-                    </Stat>
-                    <Stat>
-                        <StatLabel>Planned Υποχρεωτικά</StatLabel>
-                        <StatNumber>{ypPlanned}/18</StatNumber>
-                    </Stat>
-                </Box>
-                </Stack>
-            </CardBody>
-        </Card>
+        <Box w={['100%', '75%', '35%']}>
+            <Card w={"100%"}>
+                <CardHeader>
+                    <Heading sizes='lg'>Your Stats</Heading>
+                </CardHeader>
+                <CardBody>
+                    <Stack divider={<StackDivider />} spacing='4'>
+                    <Box>
+                        <Heading size='md' mb={5}>Passed Overview</Heading>
+                        <Stat>
+                            <StatLabel>Average</StatLabel>
+                            <StatNumber>{currentGrade.toFixed(2)}</StatNumber>
+                        </Stat>
+                        <Stat>
+                            <StatLabel>Passed Γενικης Παιδειας</StatLabel>
+                            <StatNumber>{gpPassed}/3</StatNumber>
+                        </Stat>
+                        <Stat>
+                            <StatLabel>Passed Υποχρεωτικά</StatLabel>
+                            <StatNumber>{ypPassed}/18</StatNumber>
+                        </Stat>
+                    </Box>
+                    <Box>
+                        <Heading size='md' mb={5}>Planned Overview</Heading>
+                        <Stat>
+                            <StatLabel>Planned ECTS</StatLabel>
+                            <StatNumber>{ectsPlannedSum}/240</StatNumber>
+                        </Stat>
+                        <Stat>
+                            <StatLabel>Planned Γενικης Παιδειας</StatLabel>
+                            <StatNumber>{gpPlanned}/3</StatNumber>
+                        </Stat>
+                        <Stat>
+                            <StatLabel>Planned Υποχρεωτικά</StatLabel>
+                            <StatNumber>{ypPlanned}/18</StatNumber>
+                        </Stat>
+                    </Box>
+                    </Stack>
+                </CardBody>
+            </Card>
+        </Box>
     </Flex>)
 }

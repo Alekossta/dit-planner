@@ -1,4 +1,4 @@
-import { TableContainer, Thead, Tr, Table, Td, Tbody, Text} from "@chakra-ui/react";
+import { TableContainer, Thead, Tr, Table, Td, Tbody, Box,Text} from "@chakra-ui/react";
 import { MyCourse } from "../components/MyCourse";
 
 
@@ -6,16 +6,16 @@ export function MyCoursesShower({courses, onRemove, onChangeGrade, onUpdateActiv
 {
     return (
         courses.filter(course => stateFunction(course)).length > 0 ? (
-            <TableContainer>
+            <Box>
                 <Table variant="simple">
                     <Thead>
                         <Tr>
-                            <Td>Course</Td>
-                            <Td>Code</Td>
-                            <Td>ECTS</Td>
-                            <Td>Category</Td>
-                            <Td>Semester</Td>
-                            <Td>Grade</Td>
+                            <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>Course</Td>
+                            <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>Code</Td>
+                            <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>ECTS</Td>
+                            <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>Category</Td>
+                            <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>Semester</Td>
+                            <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>Grade</Td>
                         </Tr>
                     </Thead>
                     <Tbody>
@@ -37,7 +37,7 @@ export function MyCoursesShower({courses, onRemove, onChangeGrade, onUpdateActiv
                         })}
                     </Tbody>
                 </Table>
-            </TableContainer>
+            </Box>
         ) : (
             <EmptyComponent />
         )

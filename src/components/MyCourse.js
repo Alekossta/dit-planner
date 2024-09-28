@@ -96,23 +96,23 @@ export function MyCourse({course, onRemove, onChangeGrade, showActivity, onUpdat
         </Modal>
 
         <Tr key={course.code} _hover={{ bg: "blue.100", cursor: "pointer" } } onClick={onOpen}>
-            <Td>
+            <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Icon as={ChevronRightIcon} />
                 {course.name}
             </Td>
-            <Td>
+            <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}> 
                 <Text>{course.code}</Text>
             </Td>
-            <Td>
+            <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Text>{course.ECTS}</Text>
             </Td>
-            <Td>
+            <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Text>{course.category}</Text>
             </Td>
-            <Td>
+            <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Text>{course.semester}</Text>
             </Td>
-            <Td>
+            <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Text>{course.grade}</Text>
             </Td>
         </Tr>

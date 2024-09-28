@@ -1,25 +1,25 @@
-import { TableContainer, Thead, Tr, Table, Td, Tbody} from "@chakra-ui/react";
+import { TableContainer, Thead, Tr, Table, Td, Tbody, Box} from "@chakra-ui/react";
 import { Course } from "../components/Course";
 
 export function AllCourses({courses, filterCourse, onAdd})
 {
-    return (<TableContainer>
-        <Table variant="simple">
+    return (<Box overflow={"auto"} size={['sm', 'md', 'lg']}>
+        <Table variant="simple" >
             <Thead>
                 <Tr>
-                    <Td>
+                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
                         Course
                     </Td>
-                    <Td>
+                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
                         Code
                     </Td>
-                    <Td>
+                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
                         ECTS
                     </Td>
-                    <Td>
+                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
                         Category
                     </Td>
-                    <Td>
+                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
                         Semester
                     </Td>
                 </Tr>
@@ -37,5 +37,5 @@ export function AllCourses({courses, filterCourse, onAdd})
                 })}
             </Tbody>
         </Table>
-    </TableContainer>);
+    </Box>);
 }

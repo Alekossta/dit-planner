@@ -10,6 +10,7 @@ import Header from './components/Header';
 import { AllCourses } from './pages/AllCourses';
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink, Text } from '@chakra-ui/react'
+import BurgerHeader from './components/BurgerHeader';
 
 function App() {
   const [courses, setCourses] = useState([]);
@@ -156,7 +157,7 @@ function App() {
 
   return (
     <Box>
-      <Header/>     
+      <BurgerHeader/>     
       <Flex w="100%" h="100%" flexDirection="column">
         <Routes>
           <Route path="/dit-planner" element={<Home courses={courses}/>} />
