@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dit-planner/static/css/main.8bce0f2f.css",
+    "main.js": "/dit-planner/static/js/main.a7165e94.js",
+    "static/js/453.e79c9c4c.chunk.js": "/dit-planner/static/js/453.e79c9c4c.chunk.js",
+    "index.html": "/dit-planner/index.html",
+    "main.8bce0f2f.css.map": "/dit-planner/static/css/main.8bce0f2f.css.map",
+    "main.a7165e94.js.map": "/dit-planner/static/js/main.a7165e94.js.map",
+    "453.e79c9c4c.chunk.js.map": "/dit-planner/static/js/453.e79c9c4c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8bce0f2f.css",
+    "static/js/main.a7165e94.js"
+  ]
+}
