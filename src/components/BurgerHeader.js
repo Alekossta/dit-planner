@@ -32,7 +32,7 @@ import { Link as ChakraLink } from '@chakra-ui/react'
     return (
       <Box bg="blue.500" color="white" py={1} px={3}>
         <Flex h={16} alignItems="center" justifyContent="space-between">
-          <Box fontWeight="bold" color="white">Logo</Box>
+          <Box fontWeight="bold" color="white" display={{ md: 'none' }}>Dit Planner</Box>
           <IconButton
             size="md"
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
