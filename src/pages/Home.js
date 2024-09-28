@@ -76,7 +76,7 @@ export function Home({courses})
                         <StatLabel>Average</StatLabel>
                         <StatNumber>{currentGrade.toFixed(2)}</StatNumber>
                         <StatHelpText>Your grade in {" "}
-                            <ChakraLink as={ReactRouterLink} to='/passed' color='blue.500'>
+                            <ChakraLink as={ReactRouterLink} to='/dit-planner/passed' color='blue.500'>
                                 passed courses
                             </ChakraLink>
                         </StatHelpText>
@@ -87,7 +87,7 @@ export function Home({courses})
                         <StatLabel>Current Classes</StatLabel>
                         <StatNumber>{currentCount}</StatNumber>
                         <StatHelpText>Number of{" "}
-                            <ChakraLink as={ReactRouterLink} to='/current' color='blue.500'>
+                            <ChakraLink as={ReactRouterLink} to='/dit-planner/current' color='blue.500'>
                                 current courses
                             </ChakraLink>
                             {" "}you are currently attending.
@@ -100,15 +100,15 @@ export function Home({courses})
                         <StatNumber>{ectsPlannedSum}/240</StatNumber>
                         <StatHelpText>Your planned sum of ECTS
                             in{" "}
-                            <ChakraLink as={ReactRouterLink} to='/passed' color='blue.500'>
+                            <ChakraLink as={ReactRouterLink} to='/dit-planner/passed' color='blue.500'>
                                 passed courses
                             </ChakraLink>
                             {" "}and{" "}
-                            <ChakraLink as={ReactRouterLink} to='/planned' color='blue.500'>
+                            <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
                                 planned courses.
                             </ChakraLink>                            
                             {" "}Not enough? Check{" "}
-                            <ChakraLink as={ReactRouterLink} to='/all' color='blue.500'>
+                            <ChakraLink as={ReactRouterLink} to='/dit-planner/all' color='blue.500'>
                                 all the courses
                             </ChakraLink>     
                         </StatHelpText>

@@ -1,5 +1,4 @@
 import { TableContainer, Thead, Tr, Table, Td, Tbody} from "@chakra-ui/react";
-import { MyCourse } from "../components/MyCourse";
 import { Course } from "../components/Course";
 
 export function AllCourses({courses, filterCourse, onAdd})

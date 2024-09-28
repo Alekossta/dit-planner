@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 import { Link as ReactRouterLink, useLocation } from 'react-router-dom'
-import { Link as ChakraLink, LinkProps } from '@chakra-ui/react'
+import { Link as ChakraLink } from '@chakra-ui/react'
 
 const Header = () => {
 
@@ -21,22 +21,22 @@ const Header = () => {
     return (
         <Box bg="blue.500" p={4} color="white">
             <Flex align="center">
-                <ChakraLink as={ReactRouterLink} to='/'  style={linkStyle("/")}>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner'  style={linkStyle("/dit-planner")}>
                     Home
                 </ChakraLink>
-                <ChakraLink as={ReactRouterLink} to='/current'  style={linkStyle("/current")}>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner/current'  style={linkStyle("/dit-planner/current")}>
                     Current Courses
                 </ChakraLink>
-                <ChakraLink as={ReactRouterLink} to='/passed'  style={linkStyle("/passed")}>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner/passed'  style={linkStyle("/dit-planner/passed")}>
                     Passed Courses
                 </ChakraLink>
-                <ChakraLink as={ReactRouterLink} to='/planned'  style={linkStyle("/planned")}>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner/planned'  style={linkStyle("/dit-planner/planned")}>
                     Planned Courses
                 </ChakraLink>
-                <ChakraLink as={ReactRouterLink} to='/all'  style={linkStyle("/all")}>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner/all'  style={linkStyle("/dit-planner/all")}>
                     All Courses
                 </ChakraLink>
-                <ChakraLink as={ReactRouterLink} to='/settings'  style={linkStyle("/settings")}>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner/settings'  style={linkStyle("/dit-planner/settings")}>
                     Settings
                 </ChakraLink>
             </Flex>

@@ -128,7 +128,7 @@ function App() {
 
   const noCurrentComponent = () => {
     return <Text>You have no current classes. Find some in{" "}
-      <ChakraLink as={ReactRouterLink} to='/planned' color='blue.500'>
+      <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
           planned courses.
       </ChakraLink>
     </Text>
@@ -136,11 +136,11 @@ function App() {
 
   const noPassedComponent = () => {
     return <Text>You have no passed classes. With a grade higher or equal to 5 it will be added here. Grade your classes in{" "}
-      <ChakraLink as={ReactRouterLink} to='/planned' color='blue.500'>
+      <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
           planned courses.
       </ChakraLink>
       {" "}or{" "}
-      <ChakraLink as={ReactRouterLink} to='/current' color='blue.500'>
+      <ChakraLink as={ReactRouterLink} to='/dit-planner/current' color='blue.500'>
           current courses.
       </ChakraLink>
     </Text>
@@ -148,7 +148,7 @@ function App() {
 
   const noPlannedComponent = () => {
     return <Text>You have no planned classes. Find some in{" "}
-      <ChakraLink as={ReactRouterLink} to='/all' color='blue.500'>
+      <ChakraLink as={ReactRouterLink} to='/dit-planner/all' color='blue.500'>
           all courses.
       </ChakraLink>
     </Text>
@@ -159,22 +159,22 @@ function App() {
       <Header/>     
       <Flex w="100%" h="100%" flexDirection="column">
         <Routes>
-          <Route path="/" element={<Home courses={courses}/>} />
+          <Route path="/dit-planner" element={<Home courses={courses}/>} />
 
-          <Route path="/current" element=
+          <Route path="/dit-planner/current" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
            stateFunction={currentCourseState} showActivity={true} emptyComponent={noCurrentComponent}/>}/>
 
-          <Route path="/passed" element=
+          <Route path="/dit-planner/passed" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
            stateFunction={passedCourseState} showActivity={false} emptyComponent={noPassedComponent}/>}/>
 
-          <Route path="/planned" element=
+          <Route path="/dit-planner/planned" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
            stateFunction={plannedCourseState} showActivity={true} emptyComponent={noPlannedComponent}/>}/>
 
-          <Route path='/all' element={<AllCourses courses={courses} onAdd={addHasCourse}/>}></Route>
-          <Route path="/settings" element={<Settings onResetData={resetData}/>} />
+          <Route path='/dit-planner/all' element={<AllCourses courses={courses} onAdd={addHasCourse}/>}></Route>
+          <Route path="/dit-planner/settings" element={<Settings onResetData={resetData}/>} />
         </Routes>
       </Flex>
     </Box>
