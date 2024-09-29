@@ -112,8 +112,8 @@ export function Home({courses})
             if(course.grade>=5)
             {
                 passedCount++;
-                passedEcts+=course.ECTS;
-                weightedSum += course.ECTS * course.grade;
+                passedEcts+=parseInt(course.ECTS);
+                weightedSum += parseInt(course.ECTS) * course.grade;
 
                 if(course.category==="ΓΠ")
                 {
@@ -208,7 +208,7 @@ export function Home({courses})
             // planed course
             if(course.hasCourse)
             {
-                plannedEcts+=course.ECTS;
+                plannedEcts+=parseInt(course.ECTS);
 
                 if(course.category==="ΓΠ")
                 {
@@ -219,6 +219,86 @@ export function Home({courses})
                 {
                     ypPlannedSum++;
                 }
+
+                if(course.s1)
+                {
+                    if(course.s1==="Υ")
+                    {
+                        s1YPlannedSum++;
+                    }
+
+                    if(course.s1==="B")
+                    {
+                        s1BPlannedSum++;
+                    }
+                }
+    
+                    if(course.s2)
+                    {
+                        if(course.s2==="Υ")
+                        {
+                            s2YPlannedSum++;
+                        }
+    
+                        if(course.s2==="B")
+                        {
+                            s2BPlannedSum++;
+                        }
+                    }
+    
+                    if(course.s3)
+                    {
+                        if(course.s3==="Υ")
+                        {
+                            s3YPlannedSum++;
+                        }
+    
+                        if(course.s3==="B")
+                        {
+                            s3BPlannedSum++;
+                        }
+                    }
+    
+                    if(course.s4)
+                    {
+                        if(course.s4==="Υ")
+                        {
+                            s4YPlannedSum++;
+                        }
+    
+                        if(course.s4==="B")
+                        {
+                            s4BPlannedSum++;
+                        }
+                    }
+    
+    
+                    if(course.s5)
+                    {
+                        if(course.s5==="Υ")
+                        {
+                            s5YPlannedSum++;
+                        }
+    
+                        if(course.s5==="B")
+                        {
+                            s5BPlannedSum++;
+                            console.log(course.name);
+                        }
+                    }
+    
+                    if(course.s6)
+                    {
+                        if(course.s6==="Υ")
+                        {
+                            s6YPlannedSum++;
+                        }
+    
+                        if(course.s6==="B")
+                        {
+                            s6BPlannedSum++;
+                        }
+                    }
             }
             if(course.isActive)
             {
@@ -249,6 +329,24 @@ export function Home({courses})
 
         setS6YPassed(s6YPassedSum);
         setS6BPassed(s6BPassedSum);
+
+        setS1YPlanned(s1YPlannedSum);
+        setS1BPlanned(s1BPlannedSum);
+
+        setS2YPlanned(s2YPlannedSum);
+        setS2BPlanned(s2BPlannedSum);
+
+        setS3YPlanned(s3YPlannedSum);
+        setS3BPlanned(s3BPlannedSum);
+
+        setS4YPlanned(s4YPlannedSum);
+        setS4BPlanned(s4BPlannedSum);
+
+        setS5YPlanned(s5YPlannedSum);
+        setS5BPlanned(s5BPlannedSum);
+
+        setS6YPlanned(s6YPlannedSum);
+        setS6BPlanned(s6BPlannedSum);
 
         if(passedEcts !== 0)
         {
