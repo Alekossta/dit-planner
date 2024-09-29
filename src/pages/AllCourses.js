@@ -1,9 +1,11 @@
 import { TableContainer, Thead, Tr, Table, Td, Tbody, Box} from "@chakra-ui/react";
 import { Course } from "../components/Course";
+import { FilterBar } from "../components/FilterBar";
 
 export function AllCourses({courses, filterCourse, onAdd})
 {
     return (<Box overflow={"auto"} size={['sm', 'md', 'lg']}>
+        <FilterBar />
         <Table variant="simple" >
             <Thead>
                 <Tr>
