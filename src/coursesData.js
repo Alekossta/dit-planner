@@ -227,8 +227,8 @@ export const coursesData = [
       "ECTS": 6,
       "category": "ΠΜ",
       "semester": 5,
+      "s1": "B",
       "s2": "B",
-      "s3": "B",
       "grade": 0,
       "hasCourse": false,
       "isActive": false
@@ -239,8 +239,8 @@ export const coursesData = [
       "ECTS": 6,
       "category": "ΕΥΜ",
       "semester": 5,
-      "s5": "B",
-      "s6": "Υ",
+      "s3": "B",
+      "s4": "Υ",
       "grade": 0,
       "hasCourse": false,
       "isActive": false
@@ -252,7 +252,7 @@ export const coursesData = [
       "category": "ΠΜ",
       "semester": 5,
       "s1": "B",
-      "s5": "B",
+      "s6": "B",
       "grade": 0,
       "hasCourse": false,
       "isActive": false
@@ -263,7 +263,7 @@ export const coursesData = [
       "ECTS": 6,
       "category": "ΕΥΜ",
       "semester": 5,
-      "s6": "Υ",
+      "s5": "Υ",
       "grade": 0,
       "hasCourse": false,
       "isActive": false
