@@ -188,7 +188,6 @@ export function Home({courses})
                     if(course.s5==="B")
                     {
                         s5BPassedSum++;
-                        console.log(course.name);
                     }
                 }
 
@@ -283,7 +282,6 @@ export function Home({courses})
                         if(course.s5==="B")
                         {
                             s5BPlannedSum++;
-                            console.log(course.name);
                         }
                     }
     
