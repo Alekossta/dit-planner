@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from "@chakra-ui/react";
-import { Flex, Button, Stack, Checkbox } from '@chakra-ui/react';
+import { Flex, Button, Stack, Checkbox, Input, Spacer } from '@chakra-ui/react';
+import { SearchBar } from "./SearchBar";
 import { useDisclosure } from "@chakra-ui/react";
 import { useState } from "react";
 import { allCategories, allSemesters } from "../coursesData";
@@ -16,9 +17,7 @@ import {
 
 import { Select } from "chakra-react-select";
 
-
-
-export function FilterBar({categories, setCategories, semesters, setSemesters, setSortBy}) {
+export function FilterBar({categories, setCategories, semesters, setSemesters, setSortBy }) {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
@@ -64,9 +63,10 @@ export function FilterBar({categories, setCategories, semesters, setSemesters, s
     }
     return (
         <>
-        <Button ref={btnRef} colorScheme='teal' onClick={handleOpen} style={{backgroundColor: "#4299e1", borderRadius: '10%', margin: '10px'}}>
-            Filter
-        </Button>
+            <Button ref={btnRef} colorScheme='teal' onClick={handleOpen} style={{backgroundColor: "#4299e1", borderRadius: '10%'}}>
+                Filter
+            </Button>
+        
         <Drawer
             isOpen={isOpen}
             placement='right'
@@ -79,6 +79,7 @@ export function FilterBar({categories, setCategories, semesters, setSemesters, s
             
 
             <DrawerBody>
+                
                 <DrawerHeader style={{paddingLeft: 0}}>Filter all courses...</DrawerHeader>
 
                 <Stack spacing={3}>

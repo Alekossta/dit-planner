@@ -1,6 +1,7 @@
-import { Thead, Tr, Table, Td, Tbody, Box} from "@chakra-ui/react";
+import { Thead, Tr, Table, Td, Tbody, Box, Flex } from "@chakra-ui/react";
 import { Course } from "../components/Course";
 import { FilterBar } from "../components/FilterBar";
+import { SearchBar } from "../components/SearchBar";
 import { useState } from 'react';
 import { allCategories, allSemesters } from "../coursesData";
 
@@ -9,10 +10,12 @@ export function AllCourses({courses, onAdd})
     const [selectedSemesters, setSelectedSemesters] = useState(allSemesters);
     const [selectedCategories, setSelectedCategories] = useState(allCategories);
     const [sortBy, setSortBy] = useState(null);
+    const [searchQuery, setSearchQuery] = useState("");
 
     const isFilteredCourse = (course) => {
        if (selectedSemesters.map(semester => semester.value).indexOf(course.semester) === -1) return false;
        if (selectedCategories.map(category => category.value).indexOf(course.category) === -1) return false;
+       if (course.name != undefined && !course.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
         return true;
     }
 
@@ -46,11 +49,16 @@ export function AllCourses({courses, onAdd})
     }
 
     return (<Box overflow={"auto"} size={['sm', 'md', 'lg']}>
-        <FilterBar semesters={selectedSemesters} 
-                   setSemesters={setSelectedSemesters} 
-                   categories={selectedCategories} 
-                   setCategories={setSelectedCategories} 
-                   setSortBy={setSortBy} />
+        <Flex justifyContent={'flex-start'} gap={4} alignItems={'center'} style={{margin: '10px'}}>    
+            <FilterBar semesters={selectedSemesters} 
+                        setSemesters={setSelectedSemesters} 
+                        categories={selectedCategories} 
+                        setCategories={setSelectedCategories} 
+                        setSortBy={setSortBy}
+                />
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+        </Flex>
+        
         <Table variant="simple" >
             <Thead>
                 <Tr>
