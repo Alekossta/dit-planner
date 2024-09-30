@@ -11,7 +11,7 @@ import {
     StackDivider,
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
-import { TableContainer, Thead, Tr, Table, Td, Tbody} from "@chakra-ui/react";
+import { Thead, Tr, Table, Td, Tbody} from "@chakra-ui/react";
 
 
 export function Home({courses})

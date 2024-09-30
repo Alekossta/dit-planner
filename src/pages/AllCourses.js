@@ -1,7 +1,7 @@
-import { TableContainer, Thead, Tr, Table, Td, Tbody, Box} from "@chakra-ui/react";
+import { Thead, Tr, Table, Td, Tbody, Box} from "@chakra-ui/react";
 import { Course } from "../components/Course";
 
-export function AllCourses({courses, filterCourse, onAdd})
+export function AllCourses({courses, onAdd})
 {
     return (<Box overflow={"auto"} size={['sm', 'md', 'lg']}>
         <Table variant="simple" >

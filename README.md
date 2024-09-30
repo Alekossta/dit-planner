@@ -5,3 +5,4 @@ Web frontend application for planning your courses in DIT UoA.
 # To Do
 - add sorting options
 - add ειδίκευση, κατεύθυνση
+- make s_i implementation in home more clean with arrays
