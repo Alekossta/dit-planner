@@ -235,15 +235,15 @@ function App() {
 
           <Route path="/dit-planner/current" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={currentCourseState} showActivity={true} emptyComponent={noCurrentComponent}/>}/>
+           stateFunction={currentCourseState} showActivity={true} showGrade={false} emptyComponent={noCurrentComponent}/>}/>
 
           <Route path="/dit-planner/passed" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={passedCourseState} showActivity={false} emptyComponent={noPassedComponent}/>}/>
+           stateFunction={passedCourseState} showActivity={false} showGrade={true} emptyComponent={noPassedComponent}/>}/>
 
           <Route path="/dit-planner/planned" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={plannedCourseState} showActivity={true} emptyComponent={noPlannedComponent}/>}/>
+           stateFunction={plannedCourseState} showActivity={true} showGrade={false} emptyComponent={noPlannedComponent}/>}/>
 
           <Route path='/dit-planner/all' element={<AllCourses courses={courses} onAdd={addHasCourse}/>}></Route>
 
