@@ -23,49 +23,57 @@ const CourseSchema = Yup.object().shape({
 });
 
 export const MakeCourse = ({onMakeCourse}) => {
+
   const onSubmitForm = (values) => {
     onMakeCourse(values.courseName, values.ects);
   }
-  return <Flex align="center"  flexDirection={"column"} w="100%" h="100%" mt={5}>
-    <Card w={['100%', '75%', '35%']} p={3}>
+
+  return (
+    <Flex align="center" flexDirection={"column"} w="100%" h="100%" mt={5}>
+      <Card w={['100%', '75%', '35%']} p={3}>
         <Formik
-            initialValues={{
+          initialValues={{
             courseName: "",
             ects: "",
-            }}
-            validationSchema={CourseSchema}
-            onSubmit={onSubmitForm}
+          }}
+          validationSchema={CourseSchema}
+          onSubmit={(values, { resetForm }) => {
+            onSubmitForm(values);
+            resetForm();
+          }}
         >
-            {({ errors, touched, handleSubmit, setFieldValue }) => (
+          {({ errors, touched, handleSubmit, setFieldValue, values }) => (
             <Form onSubmit={handleSubmit}>
-                <FormControl isInvalid={errors.courseName && touched.courseName}>
+              <FormControl isInvalid={errors.courseName && touched.courseName}>
                 <FormLabel htmlFor="courseName">Course Name</FormLabel>
                 <Field
-                    as={Input}
-                    id="courseName"
-                    name="courseName"
-                    placeholder="Enter course name"
+                  as={Input}
+                  id="courseName"
+                  name="courseName"
+                  placeholder="Enter course name"
                 />
                 <FormErrorMessage>{errors.courseName}</FormErrorMessage>
-                </FormControl>
-
-                <FormControl mt={4} isInvalid={errors.ects && touched.ects}>
+              </FormControl>
+  
+              <FormControl mt={4} isInvalid={errors.ects && touched.ects}>
                 <FormLabel htmlFor="ects">ECTS</FormLabel>
                 <NumberInput
-                    min={1}
-                    onChange={(value) => setFieldValue("ects", value)}
+                  min={1}
+                  value={values.ects} // Bind the value from Formik
+                  onChange={(value) => setFieldValue("ects", value)} // Update Formik field
                 >
-                    <NumberInputField id="ects" name="ects" placeholder="ECTS" />
+                  <NumberInputField id="ects" name="ects" placeholder="ECTS" />
                 </NumberInput>
                 <FormErrorMessage>{errors.ects}</FormErrorMessage>
-                </FormControl>
-
-                <Button mt={4} colorScheme="blue" type="submit">
+              </FormControl>
+  
+              <Button mt={4} colorScheme="blue" type="submit">
                 Make
-                </Button>
+              </Button>
             </Form>
-            )}
+          )}
         </Formik>
-        </Card>
+      </Card>
     </Flex>
+  );
 };
