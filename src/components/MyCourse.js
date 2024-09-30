@@ -24,7 +24,7 @@ import {
     Checkbox
 } from '@chakra-ui/react';
 
-export function MyCourse({course, onRemove, onChangeGrade, showActivity, onUpdateActivity})
+export function MyCourse({course, onRemove, onChangeGrade, showActivity, onUpdateActivity, showGrade})
 {
     useEffect(()=>{
         setGrade(course.grade);
@@ -113,9 +113,9 @@ export function MyCourse({course, onRemove, onChangeGrade, showActivity, onUpdat
             <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Text>{course.semester}</Text>
             </Td>
-            <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
+            {showGrade && <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Text>{course.grade}</Text>
-            </Td>
+            </Td>}
         </Tr>
     </>)
 }

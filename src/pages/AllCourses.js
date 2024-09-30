@@ -4,7 +4,7 @@ import { FilterBar } from "../components/FilterBar";
 import { useState } from 'react';
 import { allCategories, allSemesters } from "../coursesData";
 
-export function AllCourses({courses, filterCourse, onAdd})
+export function AllCourses({courses, onAdd})
 {
     const [selectedSemesters, setSelectedSemesters] = useState(allSemesters);
     const [selectedCategories, setSelectedCategories] = useState(allCategories);

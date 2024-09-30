@@ -5,11 +5,13 @@ import {Home} from "./pages/Home"
 import { Settings } from './pages/Settings';
 import { MyCoursesShower } from './pages/MyCoursesShower';
 import { coursesData } from "./coursesData";
+import { coursesDataVersion } from './coursesDataVersion';
 import { useState,useEffect  } from "react";
 import { AllCourses } from './pages/AllCourses';
 import { Link as ReactRouterLink } from 'react-router-dom'
 import { Link as ChakraLink, Text } from '@chakra-ui/react'
 import BurgerHeader from './components/BurgerHeader';
+import { MakeCourse } from './pages/MakeCourse';
 
 function App() {
   const [courses, setCourses] = useState(coursesData);
@@ -20,12 +22,34 @@ function App() {
       if(isFirstLoad)
       {
           const savedCourses = localStorage.getItem("courses");
-          if (savedCourses) {
-            setCourses(JSON.parse(savedCourses));
+          const version = localStorage.getItem("version");
+          if(!version)
+          {
+            if(!savedCourses)
+            {
+              // initial load
+              setCourses(coursesData);
+            }
+            else
+            {
+              // very old sync
+              syncSavedWithCourseData();
+            }
+            localStorage.setItem("version", coursesDataVersion);
           }
           else
-          {
-            setCourses(coursesData);
+          { 
+            if(version != coursesDataVersion)
+            {
+               // other version
+              syncSavedWithCourseData();
+              localStorage.setItem("version", coursesDataVersion);
+            }
+            else
+            {
+              // normal load
+              setCourses(JSON.parse(savedCourses));
+            }
           }
           setFirstLoad(false);
       }
@@ -44,6 +68,12 @@ function App() {
     setCourses(coursesData);
     showToast("Data Reset", "All your data was deleted.", "success");
   };
+
+  const makeCourse = (name, ECTS) => {
+    let newCourse = {name, code: "MC" + name.substring(0, 2).toUpperCase(),ECTS, category: "MC"}
+    setCourses(prevItems => [...prevItems, newCourse]);
+  }
+
 
   const showToast = (title,description, status) => {
       toast({
@@ -126,6 +156,25 @@ function App() {
     return course.hasCourse && course.grade >= 5
   }
 
+  // in case of an update to the courseData we need to transfer the user's saved data
+  // into the new courseData data structure
+  const syncSavedWithCourseData = () => {
+    const savedCourses = JSON.parse(localStorage.getItem("courses"));
+    let newCourses  = coursesData;
+    savedCourses.forEach((itemOld, index) => {
+      newCourses.forEach((itemNew, index) => {
+        if(itemOld.code === itemNew.code)
+        {
+          itemNew.grade = itemOld.grade;
+          itemNew.isActive = itemOld.isActive;
+          itemNew.hasCourse = itemOld.hasCourse;
+        }
+      })
+    })
+    setCourses(newCourses);
+    showToast("Synced Data", "Changes were made in the course data. Your data is synced. Look for any erros though", "success");
+  }
+
   const noCurrentComponent = () => {
     return <Text>You have no current classes. Find some in{" "}
       <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
@@ -154,6 +203,9 @@ function App() {
     </Text>
   }
 
+  console.log(Array.isArray(courses)); // Θα πρέπει να επιστρέψει true
+
+
   return (
     <Box>
       <BurgerHeader/>     
@@ -174,7 +226,10 @@ function App() {
            stateFunction={plannedCourseState} showActivity={true} emptyComponent={noPlannedComponent}/>}/>
 
           <Route path='/dit-planner/all' element={<AllCourses courses={courses} onAdd={addHasCourse}/>}></Route>
-          <Route path="/dit-planner/settings" element={<Settings onResetData={resetData}/>} />
+
+          <Route path="/dit-planner/make" element={<MakeCourse onMakeCourse={makeCourse}/>} />
+
+          <Route path="/dit-planner/settings" element={<Settings onResetData={resetData} onSyncData={syncSavedWithCourseData} version={coursesDataVersion} />} />
         </Routes>
       </Flex>
     </Box>

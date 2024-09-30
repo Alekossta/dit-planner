@@ -9,11 +9,15 @@ import {
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 
-export function Settings({onResetData})
+export function Settings({onResetData, onSyncData, version})
 {
 
     const resetButtonClicked = () => {
         onResetData();
+    }
+
+    const syncButtonClicked = () => {
+        onSyncData();
     }
     
     return (<Flex align="center"  flexDirection={"column"} w="100%" h="100%" mt={5}>
@@ -24,6 +28,12 @@ export function Settings({onResetData})
             </CardHeader>
             <CardBody>
                 <Stack divider={<StackDivider />} spacing='4'>
+                    <Box>
+                        Version: {version}
+                    </Box>
+                    <Box>
+                        <Button colorScheme='yellow' onClick={syncButtonClicked}>Sync Data</Button>
+                    </Box>
                     <Box>
                         <Button colorScheme='red' onClick={resetButtonClicked}>Reset Data</Button>
                     </Box>

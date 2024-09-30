@@ -57,6 +57,9 @@ import { Link as ChakraLink } from '@chakra-ui/react'
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/all'  style={linkStyle("/dit-planner/all")}>
                     <Text fontSize={['xs', 'xs', 'lg']} px={0}>All Courses</Text>
                 </ChakraLink>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner/make'  style={linkStyle("/dit-planner/make")}>
+                    <Text fontSize={['xs', 'xs', 'lg']} px={0}>Make Course</Text>
+                </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/settings'  style={linkStyle("/dit-planner/settings")}>
                     <Text fontSize={['xs', 'xs', 'lg']}  px={0}>Settings</Text>
                 </ChakraLink>
@@ -80,6 +83,9 @@ import { Link as ChakraLink } from '@chakra-ui/react'
                 </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/all'  style={linkStyle("/dit-planner/all")}>
                     <Text fontSize={['xs', 'xs', 'lg']} px={0}>All Courses</Text>
+                </ChakraLink>
+                <ChakraLink as={ReactRouterLink} to='/dit-planner/make'  style={linkStyle("/dit-planner/make")}>
+                    <Text fontSize={['xs', 'xs', 'lg']} px={0}>Make Course</Text>
                 </ChakraLink>
                 <ChakraLink as={ReactRouterLink} to='/dit-planner/settings'  style={linkStyle("/dit-planner/settings")}>
                     <Text fontSize={['xs', 'xs', 'lg']}  px={0}>Settings</Text>
