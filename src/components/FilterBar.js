@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text } from "@chakra-ui/react";
-import { Flex, Button, Stack, Checkbox, Input, Spacer } from '@chakra-ui/react';
-import { SearchBar } from "./SearchBar";
+import { Flex, Button, Stack, Checkbox, Box, Spacer } from '@chakra-ui/react';
 import { useDisclosure } from "@chakra-ui/react";
 import { useState } from "react";
 import { allCategories, allSemesters } from "../coursesData";
@@ -16,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 
 import { Select } from "chakra-react-select";
+import { number } from 'yup';
 
 export function FilterBar({categories, setCategories, semesters, setSemesters, setSortBy }) {
 
@@ -61,10 +61,34 @@ export function FilterBar({categories, setCategories, semesters, setSemesters, s
         setSemesters(selectedSemesters);
         onClose();
     }
+
+    const getNumberOfFiltersApplied = () => {
+        let numberOfFiltersApplied = 0;
+        if (!allCategoriesSelected) numberOfFiltersApplied++;
+        if (!allSemestersSelected) numberOfFiltersApplied++;
+        return numberOfFiltersApplied;
+    }
     return (
         <>
             <Button ref={btnRef} colorScheme='teal' onClick={handleOpen} style={{backgroundColor: "#4299e1", borderRadius: '10%'}}>
                 Filter
+                {
+                    (
+                        getNumberOfFiltersApplied() > 0 ?  (
+                            <Box style={{width: '25px', 
+                            height: '25px',
+                            backgroundColor: 'grey', 
+                            borderRadius: '50%', 
+                            marginLeft: '5px', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center'}}>{getNumberOfFiltersApplied()}</Box>
+                        ) : (
+                            <></>
+                        )
+                    )
+                }
+               
             </Button>
         
         <Drawer
