@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text } from "@chakra-ui/react";
-import { Box, Flex, Button, Input, Stack, Checkbox } from '@chakra-ui/react';
+import { Flex, Button, Stack, Checkbox } from '@chakra-ui/react';
 import { useDisclosure } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import { allCategories, allSemesters } from "../coursesData";
 import {
     Drawer,
     DrawerBody,
@@ -13,41 +14,58 @@ import {
     DrawerCloseButton,
 } from '@chakra-ui/react'
 
-import {
-    AsyncCreatableSelect,
-    AsyncSelect,
-    CreatableSelect,
-    Select,
-} from "chakra-react-select";
+import { Select } from "chakra-react-select";
 
-const semesters = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"];
-const categories = [
-    { name: "Υποχρεωτικό", short: "ΥΜ" },
-    { name: "Αυτοτελές Προαιρετικό Εργαστήριο", short: "ΕΡ" },
-    { name: "Κατ'επιλογήν υποχρεωτικό", short: "ΕΥΜ" },
-    { name: "Προαιρετικό", short: "ΠΜ" },
-    { name: "Γενικής Παιδείας", short: "ΓΠ" },
-    { name: "Project", short: "Project" },
-  ];
 
-export function FilterBar() {
+
+export function FilterBar({categories, setCategories, semesters, setSemesters, setSortBy}) {
+
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-    const [selectedSemesters, setSelectedSemesters] = useState([]);
-    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [allSemestersSelected, setAllSemestersSelected] = useState(semesters.length === allSemesters.length);
+    const [allCategoriesSelected, setAllCategoriesSelected] = useState(categories.length === allCategories.length);
 
-    const handleSemesterSelectChange = (selectedOptions) => {
-        setSelectedSemesters(selectedOptions);
-    };
+    const initialSemesters = semesters;
+    const initialCategories = categories;
 
-    const handleCategorySelectChange = (selectedOptions) => {
-        setSelectedCategories(selectedOptions);
-    };
+    const [selectedSemesters, setSelectedSemesters] = useState(initialSemesters);
+    const [selectedCategories, setSelectedCategories] = useState(initialCategories);
+    
+    const handleOpen = () => {
+        onOpen();
+    }
 
+    const handleSelectAllSemestersClick = () => {
+        if (!allSemestersSelected) {
+            setSelectedSemesters(allSemesters.map(semester => ({ label: semester.label, value: semester.value })));
+        }
+
+        setAllSemestersSelected(!allSemestersSelected);
+    }
+
+    const handleSelectAllCategoriesClick = () => {
+        if (!allCategoriesSelected) {
+            setSelectedCategories(allCategories.map(category => ({ label: category.label, value: category.value })));
+        }
+
+        setAllCategoriesSelected(!allCategoriesSelected);
+    }
+
+    const handleCancel = () => {
+        setCategories(initialCategories);
+        setSemesters(initialSemesters);
+        onClose();
+    }
+
+    const handleApply = () => {
+        setCategories(selectedCategories);
+        setSemesters(selectedSemesters);
+        onClose();
+    }
     return (
         <>
-        <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-            Open
+        <Button ref={btnRef} colorScheme='teal' onClick={handleOpen} style={{backgroundColor: "#4299e1", borderRadius: '10%', margin: '10px'}}>
+            Filter
         </Button>
         <Drawer
             isOpen={isOpen}
@@ -61,37 +79,44 @@ export function FilterBar() {
             
 
             <DrawerBody>
-                <DrawerHeader>Search for courses</DrawerHeader>
-                <Input placeholder='Type here...' />
-                <DrawerHeader>Filter all courses...</DrawerHeader>
+                <DrawerHeader style={{paddingLeft: 0}}>Filter all courses...</DrawerHeader>
 
                 <Stack spacing={3}>
                     <Flex justifyContent={'space-between'}>
                         <Text>By Semester:</Text>
-                        <Checkbox>Select All</Checkbox>
+                        <Checkbox isChecked={allSemestersSelected} onChange={handleSelectAllSemestersClick}>Select All</Checkbox>
                     </Flex>
                     
                     <Select options={[...
-                        semesters.map((semester) => ({label: semester, value: semester}))
+                        allSemesters.map((semester) => ({label: semester.label, value: semester.value}))
                     ]}
                     isMulti={true}
+                    value={selectedSemesters}
                     closeMenuOnSelect={false}
-                    onChange={handleSemesterSelectChange}
+                    onChange={(selected) => {
+                        setSelectedSemesters(selected);
+                        setAllSemestersSelected(selected.length === allSemesters.length);
+                    }}
                     />
                     <Flex justifyContent={'space-between'}>
                         <Text>By Category:</Text>
-                        <Checkbox>Select All</Checkbox>
+                        <Checkbox
+                            isChecked={allCategoriesSelected} onChange={handleSelectAllCategoriesClick}>Select All</Checkbox>
                     </Flex>
                     
                     <Select options={[...
-                        categories.map((category) => ({label: category.name, value: category.short}))
+                        allCategories.map((category) => ({label: category.label, value: category.value}))
                     ]}
+                    value={selectedCategories}
                     isMulti={true}
                     closeMenuOnSelect={false}
-                    onChange={handleSemesterSelectChange}
+                    onChange={(selected) => {
+                        setSelectedCategories(selected);
+                        setAllCategoriesSelected(selected.length === allCategories.length);
+                    }}
                     />
                 </Stack>
-                <DrawerHeader>Sort all courses...</DrawerHeader>
+                <DrawerHeader style={{paddingLeft: 0}}>Sort courses...</DrawerHeader>
                 <Select options={[
                         {
                             label: "By ECTS (increasing)",
@@ -105,16 +130,18 @@ export function FilterBar() {
                             label: "By alphabetical order",
                             value:"ALPHA"
                         }
-                        ]}></Select>
+                        ]}
+                        onChange={(selected) => setSortBy(selected.value)} 
+                />
             </DrawerBody>
 
             
 
             <DrawerFooter>
-                <Button variant='outline' mr={3} onClick={onClose}>
+                <Button variant='outline' mr={3} onClick={handleCancel}>
                 Cancel
                 </Button>
-                <Button colorScheme='blue'>Save</Button>
+                <Button colorScheme='blue' onClick={handleApply}>Apply</Button>
             </DrawerFooter>
             </DrawerContent>
         </Drawer>

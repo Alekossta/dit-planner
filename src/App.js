@@ -12,7 +12,7 @@ import { Link as ChakraLink, Text } from '@chakra-ui/react'
 import BurgerHeader from './components/BurgerHeader';
 
 function App() {
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState(coursesData);
   const toast = useToast();
   const [isFirstLoad, setFirstLoad] = useState(true);
 
