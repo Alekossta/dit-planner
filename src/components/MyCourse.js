@@ -13,14 +13,15 @@ import {
     Button,
     useDisclosure
   } from '@chakra-ui/react'
+
 import {
-NumberInput,
-NumberInputField,
-NumberInputStepper,
-NumberIncrementStepper,
-NumberDecrementStepper,
-Flex,
-Checkbox
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper,
+    Flex,
+    Checkbox
 } from '@chakra-ui/react';
 
 export function MyCourse({course, onRemove, onChangeGrade, showActivity, onUpdateActivity, showGrade})

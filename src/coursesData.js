@@ -10,7 +10,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "1"
   },
   {
     name: "Διακριτά Μαθηματικά",
@@ -23,7 +24,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "1"
   },
   {
     name: "Εισαγωγή στην Πληροφορική και στις Τηλεπικοινωνίες",
@@ -36,7 +38,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "1"
   },
   {
     name: "Εισαγωγή στον Προγραμματισμό",
@@ -49,7 +52,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "1"
   },
   {
     name: "Εργαστήριο Λογικής Σχεδίασης",
@@ -62,7 +66,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "1"
   },
   {
     name: "Λογική Σχεδίαση",
@@ -75,7 +80,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "1"
   },
   {
     name: "Ανάλυση Ι",
@@ -88,7 +94,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "2"
   },
   {
     name: "Αρχιτεκτονική Υπολογιστών Ι",
@@ -101,7 +108,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "2"
   },
   {
     name: "Δομές Δεδομένων και Τεχνικές Προγραμματισμού",
@@ -114,7 +122,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "2"
   },
   {
     name: "Εφαρμοσμένα Μαθηματικά",
@@ -127,7 +136,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "2"
   },
   {
     name: "Ηλεκτρομαγνητισμός – Οπτική και Σύγχρονη Φυσική",
@@ -140,7 +150,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "2"
   },
   {
     name: "Ανάλυση ΙΙ",
@@ -153,7 +164,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "3"
   },
   {
     name: "Αντικειμενοστραφής Προγραμματισμός",
@@ -166,7 +178,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "3"
   },
   {
     name: "Εργαστήριο Κυκλωμάτων και Συστημάτων",
@@ -179,7 +192,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "3"
   },
   {
     name: "Πιθανότητες και Στατιστική",
@@ -192,7 +206,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "3"
   },
   {
     name: "Σήματα και Συστήματα",
@@ -205,7 +220,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "3"
   },
   {
     name: "Αλγόριθμοι και Πολυπλοκότητα",
@@ -218,7 +234,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "4"
   },
   {
     name: "Δίκτυα Επικοινωνιών I",
@@ -231,7 +248,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "4"
   },
   {
     name: "Εργαστήριο Δικτύων Επικοινωνιών Ι",
@@ -244,7 +262,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "4"
   },
   {
     name: "Συστήματα Επικοινωνιών",
@@ -257,7 +276,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "4"
   },
   {
     name: "Σχεδίαση και Χρήση Βάσεων Δεδομένων",
@@ -270,7 +290,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "4"
   },
   {
     name: "Αριθμητική Ανάλυση",
@@ -283,7 +304,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Αρχές Γλωσσών Προγραμματισμού",
@@ -296,7 +318,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Αρχιτεκτονική Υπολογιστών ΙΙ",
@@ -309,7 +332,8 @@ export const coursesData = [
     s3: "B",
     s4: "Υ",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Γραφικά Ι",
@@ -322,7 +346,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "5"
   },
   {
     name: "Δίκτυα Επικοινωνιών II",
@@ -335,7 +360,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "Υ",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Κύματα, Κυματοδηγοί, Κεραίες",
@@ -348,7 +374,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "B",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Λειτουργικά Συστήματα",
@@ -361,7 +388,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Παράλληλα Συστήματα",
@@ -374,7 +402,8 @@ export const coursesData = [
     s3: "B",
     s4: "B",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Σχεδίαση Ψηφιακών Συστημάτων - VHDL",
@@ -387,7 +416,8 @@ export const coursesData = [
     s3: "",
     s4: "B",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Τεχνητή Νοημοσύνη I",
@@ -400,7 +430,8 @@ export const coursesData = [
     s3: "B",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Τηλεπικοινωνιακά Δίκτυα",
@@ -413,7 +444,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "B",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Υλοποίηση Συστημάτων Βάσεων Δεδομένων",
@@ -426,7 +458,8 @@ export const coursesData = [
     s3: "Υ",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "5"
   },
   {
     name: "Ψηφιακή Επεξεργασία Σήματος",
@@ -439,7 +472,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "Υ"
+    s6: "Υ",
+    semester: "5"
   },
   {
     name: "Αναγνώριση Προτύπων–Μηχανική Μάθηση",
@@ -452,7 +486,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "6"
   },
   {
     name: "Ανάλυση/Σχεδίαση Συστημάτων Λογισμικού",
@@ -465,7 +500,8 @@ export const coursesData = [
     s3: "B",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Ασύρματα Δίκτυα Αισθητήρων",
@@ -478,7 +514,8 @@ export const coursesData = [
     s3: "",
     s4: "B",
     s5: "B",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Διαχείριση Δικτύων",
@@ -491,7 +528,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "Υ",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Ειδικά Θέματα Επικοινωνιών και Επεξεργασίας Σήματος – Πολυμέσα και Ασύρματη Δικτύωση",
@@ -504,7 +542,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Επεξεργασία Στοχαστικών Σημάτων",
@@ -517,7 +556,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "B",
-    s6: "B"
+    s6: "B",
+    semester: "6"
   },
   {
     name: "Επιστημονικοί Υπολογισμοί",
@@ -530,7 +570,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Εργαστήριο Ηλεκτρονικής",
@@ -543,7 +584,8 @@ export const coursesData = [
     s3: "",
     s4: "B",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Ηλεκτρονική",
@@ -556,7 +598,8 @@ export const coursesData = [
     s3: "",
     s4: "Υ",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Θεωρία Πληροφορίας και Κωδίκων",
@@ -569,7 +612,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "Υ"
+    s6: "Υ",
+    semester: "6"
   },
   {
     name: "Θεωρία Υπολογισμού",
@@ -582,7 +626,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Λογικός Προγραμματισμός",
@@ -595,7 +640,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Μαθηματικά Πληροφορικής",
@@ -608,7 +654,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Μεταγλωττιστές",
@@ -621,7 +668,8 @@ export const coursesData = [
     s3: "Υ",
     s4: "B",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Προγραμματισμός Συστήματος",
@@ -634,7 +682,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Τεχνητή Νοημοσύνη ΙΙ (Βαθιά Μηχανική Μάθηση για την Επεξεργασία Φυσικής Γλώσσας)",
@@ -647,7 +696,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Τεχνικές Εξόρυξης Δεδομένων",
@@ -660,7 +710,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Αλγόριθμοι Θεμελιώσεις Μηχανικής Μάθησης",
@@ -686,7 +737,8 @@ export const coursesData = [
     s3: "B",
     s4: "",
     s5: "B",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Αλγοριθμική Επιχειρησιακή Έρευνα",
@@ -699,7 +751,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "7"
   },
   {
     name: "Ανάπτυξη Λογισμικού για Αλγοριθμικά Προβλήματα",
@@ -712,7 +765,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ανάπτυξη Λογισμικού για Πληροφοριακά Συστήματα",
@@ -725,7 +779,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ανάπτυξη Λογισμικού για Συστήματα Δικτύων και Τηλεπικοινωνιών",
@@ -738,7 +793,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Διδακτική της Πληροφορικής",
@@ -751,7 +807,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Δομή και Θεσμοί της Ευρωπαϊκής Ένωσης",
@@ -764,7 +821,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ειδικά Θέματα Επικοινωνιών και Επεξεργασίας Σήματος: Ειδικά Θέματα Κβαντικής Πληροφορίας και Υπολογιστικής",
@@ -777,7 +835,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ειδικά Θέματα Υπολογιστικών Συστημάτων και Εφαρμογών",
@@ -790,7 +849,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ειδικά Θέματα Υπολογιστικών Συστημάτων και Εφαρμογών – Τεχνολογίες Γνώσεων",
@@ -803,7 +863,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ενισχυτική Μηχανική Μάθηση και Στοχαστικά Παίγνια",
@@ -816,7 +877,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Επικοινωνία Ανθρώπου Μηχανής",
@@ -829,7 +891,8 @@ export const coursesData = [
     s3: "B",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ηλεκτρονική Διακυβέρνηση",
@@ -842,7 +905,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Θεωρία Αριθμών",
@@ -855,7 +919,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Οπτικές Επικοινωνίες και Οπτικά Δίκτυα",
@@ -868,7 +933,8 @@ export const coursesData = [
     s3: "",
     s4: "B",
     s5: "B",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Πληροφοριακά Συστήματα",
@@ -881,7 +947,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Προηγμένα Θέματα Αλγορίθμων",
@@ -894,7 +961,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Προηγμένοι Επιστημονικοί Υπολογισμοί",
@@ -907,7 +975,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Συστήματα Κινητών και Προσωπικών Επικοινωνιών",
@@ -920,7 +989,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "B",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Συστήματα Ψηφιακής Επεξεργασίας Σημάτων σε Πραγματικό Χρόνο",
@@ -933,7 +1003,8 @@ export const coursesData = [
     s3: "",
     s4: "B",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "7"
   },
   {
     name: "Σχεδίαση VLSI Κυκλωμάτων",
@@ -946,7 +1017,8 @@ export const coursesData = [
     s3: "",
     s4: "B",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Τεχνολογίες της Πληροφορίας και των Επικοινωνιών (ΤΠΕ) στη Μάθηση",
@@ -959,7 +1031,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Υπολογιστική Πολυπλοκότητα",
@@ -972,7 +1045,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ψηφιακές Επικοινωνίες",
@@ -985,7 +1059,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "B",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Ψηφιακή Προσβασιμότητα και Υποστηρικτικές Τεχνολογίες Πληροφορικής",
@@ -998,7 +1073,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "7"
   },
   {
     name: "Αλγοριθμική Επίλυση Προβλημάτων",
@@ -1011,7 +1087,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ανάπτυξη Υλικού-Λογισμικού για Ενσωματωμένα Συστήματα",
@@ -1024,7 +1101,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ασύρματες Zεύξεις",
@@ -1037,7 +1115,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Διοίκηση Έργων και Τεχνικές Παρουσίασης και Συγγραφής Επιστημονικών Εκθέσεων",
@@ -1050,7 +1129,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ειδικά Θέματα Επικοινωνιών και Επεξεργασίας Σήματος: Γραμμές μεταφοράς, κυματοδηγοί και οπτικές ίνες",
@@ -1063,7 +1143,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ειδικά Θέματα Επικοινωνιών και Επεξεργασίας Σήματος: Ειδικά Θέματα Κβαντικής Μηχανικής Μάθησης",
@@ -1076,7 +1157,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ειδικά Θέματα Θεωρητικής Πληροφορικής: Αλγόριθμοι Δομικής Βιοπληροφορικής",
@@ -1089,7 +1171,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ειδικά Θέματα Υπολογιστικών Συστημάτων και Εφαρμογών",
@@ -1102,7 +1185,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ειδικά Θέματα Υπολογιστικών Συστημάτων και Εφαρμογών: Υπολογιστικά Συστήματα Μεγάλης Κλίμακας",
@@ -1115,7 +1199,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Επεξεργασία Εικόνας",
@@ -1128,7 +1213,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "8"
   },
   {
     name: "Επεξεργασία Ομιλίας και Φυσικής Γλώσσας",
@@ -1141,7 +1227,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "8"
   },
   {
     name: "Επεξεργασία Στοχαστικών Σημάτων",
@@ -1154,7 +1241,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "B",
-    s6: "B"
+    s6: "B",
+    semester: "8"
   },
   {
     name: "Θεωρία Γραφημάτων",
@@ -1167,7 +1255,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Ιστορία της Πληροφορικής και των Τηλεπικοινωνιών",
@@ -1180,7 +1269,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Καινοτομία και Επιχειρηματικότητα",
@@ -1193,7 +1283,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Κρυπτογραφία",
@@ -1206,7 +1297,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Μικροοικονομική Ανάλυση",
@@ -1219,7 +1311,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Μουσική Πληροφορική",
@@ -1232,7 +1325,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "B"
+    s6: "B",
+    semester: "8"
   },
   {
     name: "Παράλληλοι Αλγόριθμοι",
@@ -1245,7 +1339,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Προστασία και Ασφάλεια Υπολογιστικών Συστημάτων",
@@ -1258,7 +1353,8 @@ export const coursesData = [
     s3: "B",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Σημασιολογία Γλωσσών Προγραμματισμού",
@@ -1271,7 +1367,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Σχολική Τάξη & Μικροδιδασκαλία",
@@ -1284,7 +1381,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Τεχνολογία Λογισμικού",
@@ -1297,7 +1395,8 @@ export const coursesData = [
     s3: "B",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Υπολογιστική Γεωμετρία",
@@ -1310,7 +1409,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Υπολογιστική Θεωρία Μηχανικής Μάθησης",
@@ -1323,7 +1423,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Φωτονική",
@@ -1336,7 +1437,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Πρακτική 1",
@@ -1348,7 +1450,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
     name: "Πρακτική 2",
@@ -1360,7 +1463,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },  {
     name: "Πτυχιακή 1",
     code: "ΠΤ1",
@@ -1371,10 +1475,11 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   },
   {
-    name: "Πτυχιακή 1",
+    labellllll: "Πτυχιακή 1",
     code: "ΠΤ2",
     ECTS: "8",
     category: "ΠΤ",
@@ -1383,6 +1488,26 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "8"
   }
+]
+export const allSemesters = [
+  { label: "1st", value: "1" },
+  { label: "2nd", value: "2" },
+  { label: "3rd", value: "3" },
+  { label: "4th", value: "4" },
+  { label: "5th", value: "5" },
+  { label: "6th", value: "6" },
+  { label: "7th", value: "7" },
+  { label: "8th", value: "8" }
+];
+
+export const allCategories = [
+    { label: "Υποχρεωτικό", value: "ΥΜ" },
+    { label: "Αυτοτελές Προαιρετικό Εργαστήριο", value: "ΕΡ" },
+    { label: "Κατ'επιλογήν υποχρεωτικό", value: "ΕΥΜ" },
+    { label: "Προαιρετικό", value: "ΠΜ" },
+    { label: "Γενικής Παιδείας", value: "ΓΠ" },
+    { label: "Project", value: "Project" },
 ];
