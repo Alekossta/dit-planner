@@ -70,8 +70,9 @@ function App() {
   };
 
   const makeCourse = (name, ECTS) => {
-    let newCourse = {name, code: "MC" + name.substring(0, 2).toUpperCase(),ECTS, category: "MC"}
+    let newCourse = {name, code: "MC" + name.substring(0, 2).toUpperCase() + courses.length,ECTS, category: "MC", hasCourse:true, userMade:true}
     setCourses(prevItems => [...prevItems, newCourse]);
+    showToast("Course created", newCourse.name + " added to planned courses", "success");
   }
 
 
@@ -97,12 +98,22 @@ function App() {
   };
 
   const removeHasCourse = (removedCourse) => {
-      setCourses((prevCourses) =>
-          prevCourses.map((course) =>
-            course.code === removedCourse.code ? { ...course, hasCourse: false, grade:0, isActive: false } : course
-          )
-      );
-      showToast("Course Removed", "Removed " + removedCourse.name + " from planned courses", "info");
+      if(removedCourse.category === "MC")
+      {
+        const updatedArray = courses.filter(course => course.code !== removedCourse.code);
+        setCourses(updatedArray);
+        showToast("Custom Course Removed", "Removed " + removedCourse.name + " from courses because you dropped it.", "info");
+      }
+      else
+      {
+        setCourses((prevCourses) =>
+            prevCourses.map((course) =>
+              course.code === removedCourse.code ? { ...course, hasCourse: false, grade:0, isActive: false } : course
+            )
+        );
+        showToast("Course Removed", "Removed " + removedCourse.name + " from planned courses", "info");
+      }
+
   };
 
   const changeGrade = (newGrade, changedCourse) => {
@@ -171,6 +182,15 @@ function App() {
         }
       })
     })
+
+    // add our own user courses;
+    savedCourses.forEach(course => {
+      if(course.category === "MC")
+      {
+        newCourses.push(course);
+      }
+    });
+
     setCourses(newCourses);
     showToast("Synced Data", "Changes were made in the course data. Your data is synced. Look for any erros though", "success");
   }
@@ -215,15 +235,15 @@ function App() {
 
           <Route path="/dit-planner/current" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={currentCourseState} showActivity={true} emptyComponent={noCurrentComponent}/>}/>
+           stateFunction={currentCourseState} showActivity={true} showGrade={false} emptyComponent={noCurrentComponent}/>}/>
 
           <Route path="/dit-planner/passed" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={passedCourseState} showActivity={false} emptyComponent={noPassedComponent}/>}/>
+           stateFunction={passedCourseState} showActivity={false} showGrade={true} emptyComponent={noPassedComponent}/>}/>
 
           <Route path="/dit-planner/planned" element=
           {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={plannedCourseState} showActivity={true} emptyComponent={noPlannedComponent}/>}/>
+           stateFunction={plannedCourseState} showActivity={true} showGrade={false} emptyComponent={noPlannedComponent}/>}/>
 
           <Route path='/dit-planner/all' element={<AllCourses courses={courses} onAdd={addHasCourse}/>}></Route>
 

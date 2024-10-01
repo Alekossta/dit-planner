@@ -1,1 +1,1 @@
-export const coursesDataVersion = 0.1;
+export const coursesDataVersion = 0.3;

@@ -6,8 +6,13 @@ import {
     Flex,
     Button,
     Link,
+    Text,
+    UnorderedList,
+    ListItem
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
+import { CheckCircleIcon } from '@chakra-ui/icons';
+
 
 export function Settings({onResetData, onSyncData, version})
 {
@@ -41,7 +46,20 @@ export function Settings({onResetData, onSyncData, version})
                         Made by <Link href='https://github.com/Alekossta' color={"blue.500"} isExternal>Alekossta</Link>
                     </Box>
                     <Box>
+                        <Text fontSize="xl" fontWeight="bold">
+                            Contributors
+                        </Text>
+                        <UnorderedList>
+                        <ListItem>
+                            DanielPikilidis
+                        </ListItem>
+                        <ListItem>
+                            matinanadali
+                        </ListItem>
+                    </UnorderedList>
+                    <Text mt={5}>
                         Contribute in <Link href='https://github.com/Alekossta/dit-planner' color={"blue.500"} isExternal>Github</Link>
+                    </Text>
                     </Box>
                 </Stack>
             </CardBody>
