@@ -5,6 +5,10 @@ import { SearchBar } from "../components/SearchBar";
 import { useState } from 'react';
 import { allCategories, allSemesters } from "../coursesData";
 
+function removeTonos(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 export function AllCourses({courses, onAdd})
 {
     const [selectedSemesters, setSelectedSemesters] = useState(allSemesters);
@@ -15,8 +19,9 @@ export function AllCourses({courses, onAdd})
     const isFilteredCourse = (course) => {
        if (selectedSemesters.map(semester => semester.value).indexOf(course.semester) === -1) return false;
        if (selectedCategories.map(category => category.value).indexOf(course.category) === -1) return false;
-       if (course.name != undefined && !course.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-        return true;
+       if (course.name != undefined && !removeTonos(course.name.toLowerCase()).includes(removeTonos(searchQuery).toLowerCase())) return false;
+    
+       return true;
     }
 
     const ectsIn = (course1, course2) => {
@@ -49,14 +54,14 @@ export function AllCourses({courses, onAdd})
     }
 
     return (<Box overflow={"auto"} size={['sm', 'md', 'lg']}>
-        <Flex justifyContent={'flex-start'} gap={4} alignItems={'center'} style={{margin: '10px'}}>    
+        <Flex justifyContent={'flex-start'} gap={4} alignItems={'center'} style={{margin: '10px'}}>
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/> 
             <FilterBar semesters={selectedSemesters} 
                         setSemesters={setSelectedSemesters} 
                         categories={selectedCategories} 
                         setCategories={setSelectedCategories} 
                         setSortBy={setSortBy}
                 />
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         </Flex>
         
         <Table variant="simple" >
@@ -80,14 +85,14 @@ export function AllCourses({courses, onAdd})
                 </Tr>
             </Thead>
             <Tbody>
-  {[...courses]
+  {courses
     .sort(getCompareFunction(sortBy)) // Pass `sortBy` to get the correct compare function
     .map((course, index) => {
       // Filter and display courses
       if (!course.hasCourse && isFilteredCourse(course)) {
         return <Course course={course} key={index} onAdd={onAdd} />;
       } else {
-        return null; // Use null instead of an empty JSX element
+        return null;
       }
     })}
 </Tbody>

@@ -64,7 +64,7 @@ function App() {
   }, [courses]);
 
   const resetData = () => {
-    localStorage.removeItem('courses');
+    localStorage.setItem("courses", JSON.stringify(coursesData));   
     setCourses(coursesData);
     showToast("Data Reset", "All your data was deleted.", "success");
   };
@@ -81,7 +81,7 @@ function App() {
         title,
         description,
         status,
-        duration: 3000,
+        duration: 1000,
         isClosable: true,
         position: "top",
         variant: "subtle"
@@ -170,89 +170,97 @@ function App() {
   // in case of an update to the courseData we need to transfer the user's saved data
   // into the new courseData data structure
   const syncSavedWithCourseData = () => {
-    const savedCourses = JSON.parse(localStorage.getItem("courses"));
-    let newCourses  = coursesData;
-    savedCourses.forEach((itemOld, index) => {
-      newCourses.forEach((itemNew, index) => {
-        if(itemOld.code === itemNew.code)
-        {
-          itemNew.grade = itemOld.grade;
-          itemNew.isActive = itemOld.isActive;
-          itemNew.hasCourse = itemOld.hasCourse;
-        }
+    const notParsedCourses = localStorage.getItem("courses");
+    if(notParsedCourses)
+    {
+      const savedCourses = JSON.parse(localStorage.getItem("courses"));
+      let newCourses  = coursesData;
+      savedCourses.forEach((itemOld, index) => {
+        newCourses.forEach((itemNew, index) => {
+          if(itemOld.code === itemNew.code)
+          {
+            itemNew.grade = itemOld.grade;
+            itemNew.isActive = itemOld.isActive;
+            itemNew.hasCourse = itemOld.hasCourse;
+          }
+        })
       })
-    })
+      // add our own user courses
+      savedCourses.forEach(course => {
+        if(course.category === "MC")
+        {
+          newCourses.push(course);
+        }
+      });
 
-    // add our own user courses;
-    savedCourses.forEach(course => {
-      if(course.category === "MC")
-      {
-        newCourses.push(course);
-      }
-    });
-
-    setCourses(newCourses);
-    showToast("Synced Data", "Changes were made in the course data. Your data is synced. Look for any erros though", "success");
+      setCourses(newCourses);
+      showToast("Synced Data", "Changes were made in the course data. Your data is synced. Look for any erros though", "success");
+    }
+    else
+    {
+      showToast("No saved data", "You have no saved data to sync", "error");
+    }  
   }
 
   const noCurrentComponent = () => {
-    return <Text>You have no current classes. Find some in{" "}
-      <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
-          planned courses.
-      </ChakraLink>
-    </Text>
+    return <Flex width={"100%"} height={"100%"} alignContent={"center"} justifyContent={"center"} mt={5}>
+        <Text textAlign={"center"}>You have no current classes. Find some in{" "}
+          <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
+              planned courses.
+          </ChakraLink>
+        </Text>
+    </Flex>
   }
 
   const noPassedComponent = () => {
-    return <Text>You have no passed classes. With a grade higher or equal to 5 it will be added here. Grade your classes in{" "}
-      <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
-          planned courses.
-      </ChakraLink>
-      {" "}or{" "}
-      <ChakraLink as={ReactRouterLink} to='/dit-planner/current' color='blue.500'>
-          current courses.
-      </ChakraLink>
-    </Text>
+    return <Flex width={"100%"} height={"100%"} alignContent={"center"} justifyContent={"center"} mt={5}>
+      <Text>You have no passed classes. With a grade higher or equal to 5 it will be added here. Grade your classes in{" "}
+        <ChakraLink as={ReactRouterLink} to='/dit-planner/planned' color='blue.500'>
+            planned courses.
+        </ChakraLink>
+        {" "}or{" "}
+        <ChakraLink as={ReactRouterLink} to='/dit-planner/current' color='blue.500'>
+            current courses.
+        </ChakraLink>
+      </Text>
+    </Flex>
   }
 
   const noPlannedComponent = () => {
-    return <Text>You have no planned classes. Find some in{" "}
-      <ChakraLink as={ReactRouterLink} to='/dit-planner/all' color='blue.500'>
-          all courses.
-      </ChakraLink>
-    </Text>
+    return <Flex width={"100%"} height={"100%"} alignContent={"center"} justifyContent={"center"} mt={5}>
+      <Text>You have no planned classes. Find some in{" "}
+        <ChakraLink as={ReactRouterLink} to='/dit-planner/all' color='blue.500'>
+            all courses.
+        </ChakraLink>
+      </Text>
+    </Flex>
   }
 
-  console.log(Array.isArray(courses)); // Θα πρέπει να επιστρέψει true
-
-
   return (
-    <Box>
+    <Flex w="100%" h="100%" flexDirection={"column"}>
       <BurgerHeader/>     
-      <Flex w="100%" h="100%" flexDirection="column">
-        <Routes>
-          <Route path="/dit-planner" element={<Home courses={courses}/>} />
+      <Routes>
+        <Route path="/dit-planner" element={<Home courses={courses}/>} />
 
-          <Route path="/dit-planner/current" element=
-          {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={currentCourseState} showActivity={true} showGrade={false} emptyComponent={noCurrentComponent}/>}/>
+        <Route path="/dit-planner/current" element=
+        {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
+          stateFunction={currentCourseState} showActivity={true} showGrade={false} emptyComponent={noCurrentComponent}/>}/>
 
-          <Route path="/dit-planner/passed" element=
-          {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={passedCourseState} showActivity={false} showGrade={true} emptyComponent={noPassedComponent}/>}/>
+        <Route path="/dit-planner/passed" element=
+        {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
+          stateFunction={passedCourseState} showActivity={false} showGrade={true} emptyComponent={noPassedComponent}/>}/>
 
-          <Route path="/dit-planner/planned" element=
-          {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
-           stateFunction={plannedCourseState} showActivity={true} showGrade={false} emptyComponent={noPlannedComponent}/>}/>
+        <Route path="/dit-planner/planned" element=
+        {<MyCoursesShower courses={courses} onRemove={removeHasCourse} onChangeGrade={changeGrade} onUpdateActivity={updateActivity}
+          stateFunction={plannedCourseState} showActivity={true} showGrade={false} emptyComponent={noPlannedComponent}/>}/>
 
-          <Route path='/dit-planner/all' element={<AllCourses courses={courses} onAdd={addHasCourse}/>}></Route>
+        <Route path='/dit-planner/all' element={<AllCourses courses={courses} onAdd={addHasCourse}/>}></Route>
 
-          <Route path="/dit-planner/make" element={<MakeCourse onMakeCourse={makeCourse}/>} />
+        <Route path="/dit-planner/make" element={<MakeCourse onMakeCourse={makeCourse}/>} />
 
-          <Route path="/dit-planner/settings" element={<Settings onResetData={resetData} onSyncData={syncSavedWithCourseData} version={coursesDataVersion} />} />
-        </Routes>
-      </Flex>
-    </Box>
+        <Route path="/dit-planner/settings" element={<Settings onResetData={resetData} onSyncData={syncSavedWithCourseData} version={coursesDataVersion} />} />
+      </Routes>
+    </Flex>
 
 
   );
