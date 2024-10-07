@@ -14,7 +14,7 @@ import BurgerHeader from './components/BurgerHeader';
 import { MakeCourse } from './pages/MakeCourse';
 
 function App() {
-  const [courses, setCourses] = useState(coursesData);
+  const [courses, setCourses] = useState([]);
   const toast = useToast();
   const [isFirstLoad, setFirstLoad] = useState(true);
 

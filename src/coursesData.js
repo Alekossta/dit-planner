@@ -11,7 +11,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "1"
   },
   {
     name: "Διακριτά Μαθηματικά",
@@ -25,7 +24,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "1"
   },
   {
     name: "Εισαγωγή στην Πληροφορική και στις Τηλεπικοινωνίες",
@@ -39,7 +37,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "1"
   },
   {
     name: "Εισαγωγή στον Προγραμματισμό",
@@ -53,7 +50,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "1"
   },
   {
     name: "Εργαστήριο Λογικής Σχεδίασης",
@@ -67,7 +63,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "1"
   },
   {
     name: "Λογική Σχεδίαση",
@@ -81,7 +76,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "1"
   },
   {
     name: "Ανάλυση Ι",
@@ -95,7 +89,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "2"
   },
   {
     name: "Αρχιτεκτονική Υπολογιστών Ι",
@@ -669,7 +662,6 @@ export const coursesData = [
     s4: "B",
     s5: "",
     s6: "",
-    semester: "6"
   },
   {
     name: "Προγραμματισμός Συστήματος",
@@ -683,7 +675,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "6"
   },
   {
     name: "Τεχνητή Νοημοσύνη ΙΙ (Βαθιά Μηχανική Μάθηση για την Επεξεργασία Φυσικής Γλώσσας)",
@@ -1463,8 +1454,7 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: "",
-    semester: "8"
+    s6: "",s
   },  {
     name: "Πτυχιακή 1",
     code: "ΠΤ1",
@@ -1476,10 +1466,9 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "8"
   },
   {
-    labellllll: "Πτυχιακή 1",
+    name: "Πτυχιακή 1",
     code: "ΠΤ2",
     ECTS: "8",
     category: "ΠΤ",
@@ -1489,7 +1478,6 @@ export const coursesData = [
     s4: "",
     s5: "",
     s6: "",
-    semester: "8"
   }
 ]
 export const allSemesters = [
