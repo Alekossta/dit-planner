@@ -12,6 +12,9 @@ import {
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { Thead, Tr, Table, Td, Tbody} from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 export function Home({courses})
@@ -26,6 +29,10 @@ export function Home({courses})
 
     const [ypPassed, setYpPassed] = useState(0);
     const [ypPlanned, setYpPlanned] = useState(0);
+
+    const [currentCount, setCurrentCount] = useState(0);
+    const [passedCount, setPassedCount] = useState(0);
+    const [plannedCount, setPlannedCount] = useState(0);
     
     //
     // Could be done with array and more efficiently. Just doing this for now
@@ -111,6 +118,8 @@ export function Home({courses})
             // passed course
             if(course.grade>=5)
             {
+                setPassedCount((prev) => prev+1);
+
                 passedCount++;
                 passedEcts+=parseInt(course.ECTS);
                 weightedSum += parseInt(course.ECTS) * course.grade;
@@ -207,6 +216,8 @@ export function Home({courses})
             // planed course
             if(course.hasCourse)
             {
+                setPlannedCount((prev) => prev+1);
+
                 plannedEcts+=parseInt(course.ECTS);
 
                 if(course.category==="ΓΠ")
@@ -301,6 +312,7 @@ export function Home({courses})
             if(course.isActive)
             {
                 currentCountSum++;
+                setCurrentCount((prev) => prev+1);
             }
         });
         setEctsPassedSum(passedEcts);
@@ -352,216 +364,228 @@ export function Home({courses})
         }
     }
     return (
-    <Flex align="center" justifyContent="center" flexDirection={"column"} w="100%" h="100%" mb={4}>
+    <Flex align="center" justifyContent="center" flexDirection={"column"}>
         <CircularProgress value={ectsPassedSum} color='blue.400'  size='250px' thickness='5px' min={0} max={240} mt={3}>
             <CircularProgressLabel>{ectsPassedSum+" "}ects</CircularProgressLabel>
         </CircularProgress>
-        <Box w={['100%', '75%', '35%']}>
-            <Card w={"100%"}>
-                <CardHeader>
-                    <Heading sizes='lg'>Your Stats</Heading>
-                </CardHeader>
-                <CardBody>
-                    <Stack divider={<StackDivider />} spacing='4'>
-                    <Box>
-                        <Heading size='md' mb={5}>Passed Overview</Heading>
-                        <Stat>
-                            <StatLabel>Average</StatLabel>
-                            <StatNumber>{currentGrade.toFixed(2)}</StatNumber>
-                        </Stat>
-                        <Stat>
-                            <StatLabel>Passed Γενικης Παιδειας</StatLabel>
-                            <StatNumber>{gpPassed}/3</StatNumber>
-                        </Stat>
-                        <Stat>
-                            <StatLabel>Passed Υποχρεωτικά</StatLabel>
-                            <StatNumber>{ypPassed}/18</StatNumber>
-                        </Stat>
-                        <Table>
-                            <Thead>
-                                <Tr>
-                                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
-                                        Category
-                                    </Td>
-                                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
-                                        Υποχρεωτικά
-                                    </Td>
-                                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
-                                        Bασικά
-                                    </Td>
-                                </Tr>
-                            </Thead>
-                            <Tbody>
-                                <Tr bg={(s1YPassed >= 2 && s1BPassed >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S1
-                                    </Td>
-                                    <Td>
-                                        {s1YPassed}/2
-                                    </Td>
-                                    <Td>
-                                        {s1BPassed}/4
-                                    </Td>
-                                </Tr>
-                                <Tr bg={(s2YPassed >= 2 && s2BPassed >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S2
-                                    </Td>
-                                    <Td>
-                                        {s2YPassed}/2
-                                    </Td>
-                                    <Td>
-                                        {s2BPassed}/4
-                                    </Td>
-                                </Tr>
-                                <Tr bg={(s3YPassed >= 2 && s3BPassed >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S3
-                                    </Td>
-                                    <Td>
-                                        {s3YPassed}/2
-                                    </Td>
-                                    <Td>
-                                        {s3BPassed}/4
-                                    </Td>
-                                </Tr>
-                                <Tr bg={(s4YPassed >= 2 && s4BPassed >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S4
-                                    </Td>
-                                    <Td>
-                                        {s4YPassed}/2
-                                    </Td>
-                                    <Td>
-                                        {s4BPassed}/4
-                                    </Td>
-                                </Tr>
-                                <Tr bg={(s5YPassed >= 2 && s5BPassed >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S5
-                                    </Td>
-                                    <Td>
-                                        {s5YPassed}/2
-                                    </Td>
-                                    <Td>
-                                        {s5BPassed}/4
-                                    </Td>
-                                </Tr>
-                                <Tr bg={(s6YPassed >= 2 && s6BPassed >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S6
-                                    </Td>
-                                    <Td>
-                                        {s6YPassed}/2
-                                    </Td>
-                                    <Td>
-                                        {s6BPassed}/4
-                                    </Td>
-                                </Tr>
-                            </Tbody>
-                        </Table>
-                    </Box>
-                    <Box>
-                        <Heading size='md' mb={5}>Planned Overview</Heading>
-                        <Stat>
-                            <StatLabel>Planned ECTS</StatLabel>
-                            <StatNumber>{ectsPlannedSum}/240</StatNumber>
-                        </Stat>
-                        <Stat>
-                            <StatLabel>Planned Γενικης Παιδειας</StatLabel>
-                            <StatNumber>{gpPlanned}/3</StatNumber>
-                        </Stat>
-                        <Stat>
-                            <StatLabel>Planned Υποχρεωτικά</StatLabel>
-                            <StatNumber>{ypPlanned}/18</StatNumber>
-                        </Stat>
-                        <Table>
-                            <Thead>
-                                <Tr>
-                                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
-                                        Category
-                                    </Td>
-                                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
-                                        Υποχρεωτικά
-                                    </Td>
-                                    <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
-                                        Bασικά
-                                    </Td>
-                                </Tr>
-                            </Thead>
-                            <Tbody>
-                                <Tr bg={(s1YPlanned >= 2 && s1BPlanned >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S1
-                                    </Td>
-                                    <Td>
-                                        {s1YPlanned}/2
-                                    </Td>
-                                    <Td>
-                                        {s1BPlanned}/4
-                                    </Td>
-                                </Tr>
-                                <Tr bg={(s2YPlanned >= 2 && s2BPlanned >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S2
-                                    </Td>
-                                    <Td>
-                                        {s2YPlanned}/2
-                                    </Td>
-                                    <Td>
-                                        {s2BPlanned}/4
-                                    </Td>
-                                </Tr>
-                                <Tr bg={(s3YPlanned >= 2 && s3BPlanned >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S3
-                                    </Td>
-                                    <Td>
-                                        {s3YPlanned}/2
-                                    </Td>
-                                    <Td>
-                                        {s3BPlanned}/4
-                                    </Td>
-                                </Tr>
-                                <Tr  bg={(s4YPlanned >= 2 && s4BPlanned >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S4
-                                    </Td>
-                                    <Td>
-                                        {s4YPlanned}/2
-                                    </Td>
-                                    <Td>
-                                        {s4BPlanned}/4
-                                    </Td>
-                                </Tr>
-                                <Tr  bg={(s5YPlanned >= 2 && s5BPlanned >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S5
-                                    </Td>
-                                    <Td>
-                                        {s5YPlanned}/2
-                                    </Td>
-                                    <Td>
-                                        {s5BPlanned}/4
-                                    </Td>
-                                </Tr>
-                                <Tr  bg={(s6YPlanned >= 2 && s6BPlanned >= 4) ? "green.200" : "transparent"}>
-                                    <Td>
-                                        S6
-                                    </Td>
-                                    <Td>
-                                        {s6YPlanned}/2
-                                    </Td>
-                                    <Td>
-                                        {s6BPlanned}/4
-                                    </Td>
-                                </Tr>
-                            </Tbody>
-                        </Table>
-                    </Box>
-                    </Stack>
-                </CardBody>
-            </Card>
-        </Box>
+        <Flex flexDirection={"column"} w={["100%", "75%", "50%"]} mb={4}>
+            <Button as={RouterLink} to="/dit-planner/current" h={65} colorScheme="blue" borderRadius={0} mb={1}>
+                Current Courses {currentCount}
+            </Button>
+            <Button as={RouterLink} to="/dit-planner/passed" h={65} colorScheme="blue" borderRadius={0} mb={1}>
+                Passed Courses {passedCount}
+            </Button>
+            <Button as={RouterLink} to="/dit-planner/planned" h={65} colorScheme="blue" borderRadius={0} mb={1}>
+                Planned Courses {plannedCount}
+            </Button>
+            <Button as={RouterLink} to="/dit-planner/all" h={65}colorScheme="blue" borderRadius={0} mb={1}>
+                All Courses
+            </Button>
+        </Flex>
+        <Card w={["100%", "75%", "50%"]} mb={4}>
+            <CardHeader>
+                <Heading sizes='lg'>Your Stats</Heading>
+            </CardHeader>
+            <CardBody>
+                <Stack divider={<StackDivider />} spacing='4'>
+                <Box>
+                    <Heading size='md' mb={5}>Passed Overview</Heading>
+                    <Stat>
+                        <StatLabel>Average</StatLabel>
+                        <StatNumber>{currentGrade.toFixed(2)}</StatNumber>
+                    </Stat>
+                    <Stat>
+                        <StatLabel>Passed Γενικης Παιδειας</StatLabel>
+                        <StatNumber>{gpPassed}/3</StatNumber>
+                    </Stat>
+                    <Stat>
+                        <StatLabel>Passed Υποχρεωτικά</StatLabel>
+                        <StatNumber>{ypPassed}/18</StatNumber>
+                    </Stat>
+                    <Table>
+                        <Thead>
+                            <Tr>
+                                <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
+                                    Category
+                                </Td>
+                                <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
+                                    Υποχρεωτικά
+                                </Td>
+                                <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
+                                    Bασικά
+                                </Td>
+                            </Tr>
+                        </Thead>
+                        <Tbody>
+                            <Tr bg={(s1YPassed >= 2 && s1BPassed >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S1
+                                </Td>
+                                <Td>
+                                    {s1YPassed}/2
+                                </Td>
+                                <Td>
+                                    {s1BPassed}/4
+                                </Td>
+                            </Tr>
+                            <Tr bg={(s2YPassed >= 2 && s2BPassed >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S2
+                                </Td>
+                                <Td>
+                                    {s2YPassed}/2
+                                </Td>
+                                <Td>
+                                    {s2BPassed}/4
+                                </Td>
+                            </Tr>
+                            <Tr bg={(s3YPassed >= 2 && s3BPassed >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S3
+                                </Td>
+                                <Td>
+                                    {s3YPassed}/2
+                                </Td>
+                                <Td>
+                                    {s3BPassed}/4
+                                </Td>
+                            </Tr>
+                            <Tr bg={(s4YPassed >= 2 && s4BPassed >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S4
+                                </Td>
+                                <Td>
+                                    {s4YPassed}/2
+                                </Td>
+                                <Td>
+                                    {s4BPassed}/4
+                                </Td>
+                            </Tr>
+                            <Tr bg={(s5YPassed >= 2 && s5BPassed >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S5
+                                </Td>
+                                <Td>
+                                    {s5YPassed}/2
+                                </Td>
+                                <Td>
+                                    {s5BPassed}/4
+                                </Td>
+                            </Tr>
+                            <Tr bg={(s6YPassed >= 2 && s6BPassed >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S6
+                                </Td>
+                                <Td>
+                                    {s6YPassed}/2
+                                </Td>
+                                <Td>
+                                    {s6BPassed}/4
+                                </Td>
+                            </Tr>
+                        </Tbody>
+                    </Table>
+                </Box>
+                <Box>
+                    <Heading size='md' mb={5}>Planned Overview</Heading>
+                    <Stat>
+                        <StatLabel>Planned ECTS</StatLabel>
+                        <StatNumber>{ectsPlannedSum}/240</StatNumber>
+                    </Stat>
+                    <Stat>
+                        <StatLabel>Planned Γενικης Παιδειας</StatLabel>
+                        <StatNumber>{gpPlanned}/3</StatNumber>
+                    </Stat>
+                    <Stat>
+                        <StatLabel>Planned Υποχρεωτικά</StatLabel>
+                        <StatNumber>{ypPlanned}/18</StatNumber>
+                    </Stat>
+                    <Table>
+                        <Thead>
+                            <Tr>
+                                <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
+                                    Category
+                                </Td>
+                                <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
+                                    Υποχρεωτικά
+                                </Td>
+                                <Td fontSize={['xs', 'xs', 'lg']}  px={0.5}>
+                                    Bασικά
+                                </Td>
+                            </Tr>
+                        </Thead>
+                        <Tbody>
+                            <Tr bg={(s1YPlanned >= 2 && s1BPlanned >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S1
+                                </Td>
+                                <Td>
+                                    {s1YPlanned}/2
+                                </Td>
+                                <Td>
+                                    {s1BPlanned}/4
+                                </Td>
+                            </Tr>
+                            <Tr bg={(s2YPlanned >= 2 && s2BPlanned >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S2
+                                </Td>
+                                <Td>
+                                    {s2YPlanned}/2
+                                </Td>
+                                <Td>
+                                    {s2BPlanned}/4
+                                </Td>
+                            </Tr>
+                            <Tr bg={(s3YPlanned >= 2 && s3BPlanned >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S3
+                                </Td>
+                                <Td>
+                                    {s3YPlanned}/2
+                                </Td>
+                                <Td>
+                                    {s3BPlanned}/4
+                                </Td>
+                            </Tr>
+                            <Tr  bg={(s4YPlanned >= 2 && s4BPlanned >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S4
+                                </Td>
+                                <Td>
+                                    {s4YPlanned}/2
+                                </Td>
+                                <Td>
+                                    {s4BPlanned}/4
+                                </Td>
+                            </Tr>
+                            <Tr  bg={(s5YPlanned >= 2 && s5BPlanned >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S5
+                                </Td>
+                                <Td>
+                                    {s5YPlanned}/2
+                                </Td>
+                                <Td>
+                                    {s5BPlanned}/4
+                                </Td>
+                            </Tr>
+                            <Tr  bg={(s6YPlanned >= 2 && s6BPlanned >= 4) ? "green.200" : "transparent"}>
+                                <Td>
+                                    S6
+                                </Td>
+                                <Td>
+                                    {s6YPlanned}/2
+                                </Td>
+                                <Td>
+                                    {s6BPlanned}/4
+                                </Td>
+                            </Tr>
+                        </Tbody>
+                    </Table>
+                </Box>
+                </Stack>
+            </CardBody>
+        </Card>
     </Flex>)
 }

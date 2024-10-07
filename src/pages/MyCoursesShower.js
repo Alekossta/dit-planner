@@ -5,7 +5,7 @@ export function MyCoursesShower({courses, onRemove, onChangeGrade, onUpdateActiv
 {
     return (
         courses.filter(course => stateFunction(course)).length > 0 ? (
-            <Box>
+            <Box w={"100%"}>
                 <Table variant="simple">
                     <Thead>
                         <Tr>

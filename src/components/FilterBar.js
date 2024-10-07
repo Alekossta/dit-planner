@@ -15,7 +15,6 @@ import {
 } from '@chakra-ui/react'
 
 import { Select } from "chakra-react-select";
-import { number } from 'yup';
 
 export function FilterBar({categories, setCategories, semesters, setSemesters, setSortBy }) {
 
@@ -71,7 +70,7 @@ export function FilterBar({categories, setCategories, semesters, setSemesters, s
     return (
         <>
             <Button ref={btnRef} colorScheme='teal' onClick={handleOpen} style={{backgroundColor: "#4299e1", borderRadius: '10%'}}>
-                Filter
+                Filters
                 {
                     (
                         getNumberOfFiltersApplied() > 0 ?  (
