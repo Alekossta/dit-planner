@@ -417,7 +417,7 @@ export function Home({courses})
                             </Tr>
                         </Thead>
                         <Tbody>
-                            <Tr bg={(s1YPassed >= 2 && s1BPassed >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s1YPassed >= 2 && s1BPassed >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S1
                                 </Td>
@@ -428,7 +428,7 @@ export function Home({courses})
                                     {s1BPassed}/4
                                 </Td>
                             </Tr>
-                            <Tr bg={(s2YPassed >= 2 && s2BPassed >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s2YPassed >= 2 && s2BPassed >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S2
                                 </Td>
@@ -439,7 +439,7 @@ export function Home({courses})
                                     {s2BPassed}/4
                                 </Td>
                             </Tr>
-                            <Tr bg={(s3YPassed >= 2 && s3BPassed >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s3YPassed >= 2 && s3BPassed >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S3
                                 </Td>
@@ -450,7 +450,7 @@ export function Home({courses})
                                     {s3BPassed}/4
                                 </Td>
                             </Tr>
-                            <Tr bg={(s4YPassed >= 2 && s4BPassed >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s4YPassed >= 2 && s4BPassed >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S4
                                 </Td>
@@ -461,7 +461,7 @@ export function Home({courses})
                                     {s4BPassed}/4
                                 </Td>
                             </Tr>
-                            <Tr bg={(s5YPassed >= 2 && s5BPassed >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s5YPassed >= 2 && s5BPassed >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S5
                                 </Td>
@@ -472,7 +472,7 @@ export function Home({courses})
                                     {s5BPassed}/4
                                 </Td>
                             </Tr>
-                            <Tr bg={(s6YPassed >= 2 && s6BPassed >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s6YPassed >= 2 && s6BPassed >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S6
                                 </Td>
@@ -515,7 +515,7 @@ export function Home({courses})
                             </Tr>
                         </Thead>
                         <Tbody>
-                            <Tr bg={(s1YPlanned >= 2 && s1BPlanned >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s1YPlanned >= 2 && s1BPlanned >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S1
                                 </Td>
@@ -526,7 +526,7 @@ export function Home({courses})
                                     {s1BPlanned}/4
                                 </Td>
                             </Tr>
-                            <Tr bg={(s2YPlanned >= 2 && s2BPlanned >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s2YPlanned >= 2 && s2BPlanned >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S2
                                 </Td>
@@ -537,7 +537,7 @@ export function Home({courses})
                                     {s2BPlanned}/4
                                 </Td>
                             </Tr>
-                            <Tr bg={(s3YPlanned >= 2 && s3BPlanned >= 4) ? "green.200" : "transparent"}>
+                            <Tr bg={(s3YPlanned >= 2 && s3BPlanned >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S3
                                 </Td>
@@ -548,7 +548,7 @@ export function Home({courses})
                                     {s3BPlanned}/4
                                 </Td>
                             </Tr>
-                            <Tr  bg={(s4YPlanned >= 2 && s4BPlanned >= 4) ? "green.200" : "transparent"}>
+                            <Tr  bg={(s4YPlanned >= 2 && s4BPlanned >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S4
                                 </Td>
@@ -559,7 +559,7 @@ export function Home({courses})
                                     {s4BPlanned}/4
                                 </Td>
                             </Tr>
-                            <Tr  bg={(s5YPlanned >= 2 && s5BPlanned >= 4) ? "green.200" : "transparent"}>
+                            <Tr  bg={(s5YPlanned >= 2 && s5BPlanned >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S5
                                 </Td>
@@ -570,7 +570,7 @@ export function Home({courses})
                                     {s5BPlanned}/4
                                 </Td>
                             </Tr>
-                            <Tr  bg={(s6YPlanned >= 2 && s6BPlanned >= 4) ? "green.200" : "transparent"}>
+                            <Tr  bg={(s6YPlanned >= 2 && s6BPlanned >= 4) ? "green.300" : "transparent"}>
                                 <Td>
                                     S6
                                 </Td>
