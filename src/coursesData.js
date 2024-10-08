@@ -1406,6 +1406,6 @@ export const allCategories = [
     { label: "Κατ'επιλογήν υποχρεωτικό", value: "ΕΥΜ" },
     { label: "Προαιρετικό", value: "ΠΜ" },
     { label: "Γενικής Παιδείας", value: "ΓΠ" },
-    { label: "Project", value: "Project" },
+    { label: "Project", value: "P" },
     { label: "Πτυχιακή/Πρακτική", value: "Π" },
 ];
