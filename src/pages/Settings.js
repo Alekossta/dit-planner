@@ -12,11 +12,13 @@ import {
 } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody } from '@chakra-ui/react'
 import { CheckCircleIcon } from '@chakra-ui/icons';
+import { useColorMode } from '@chakra-ui/react';
 
 
 export function Settings({onResetData, onSyncData, version})
 {
-
+    const { colorMode, toggleColorMode } = useColorMode();
+    
     const resetButtonClicked = () => {
         onResetData();
     }
@@ -24,6 +26,8 @@ export function Settings({onResetData, onSyncData, version})
     const syncButtonClicked = () => {
         onSyncData();
     }
+
+    const isDarkMode = colorMode !== "light";
     
     return (<Flex align="center"  flexDirection={"column"} w="100%" h="100%" mt={5}>
     <Box w={['100%', '75%', '35%']}>
@@ -34,7 +38,7 @@ export function Settings({onResetData, onSyncData, version})
             <CardBody>
                 <Stack divider={<StackDivider />} spacing='4'>
                     <Box>
-                        Version: {version}
+                        <Button colorScheme={"gray"} onClick={toggleColorMode}>Switch to {isDarkMode ? "Light" : "Dark"} Mode</Button>
                     </Box>
                     <Box>
                         <Button colorScheme='yellow' onClick={syncButtonClicked}>Sync Data</Button>
@@ -56,10 +60,13 @@ export function Settings({onResetData, onSyncData, version})
                         <ListItem>
                             matinanadali
                         </ListItem>
-                    </UnorderedList>
-                    <Text mt={5}>
-                        Contribute in <Link href='https://github.com/Alekossta/dit-planner' color={"blue.500"} isExternal>Github</Link>
-                    </Text>
+                        </UnorderedList>
+                        <Text mt={5}>
+                            Contribute in <Link href='https://github.com/Alekossta/dit-planner' color={"blue.500"} isExternal>Github</Link>
+                        </Text>
+                    </Box>
+                    <Box>
+                        Version: {version}
                     </Box>
                 </Stack>
             </CardBody>

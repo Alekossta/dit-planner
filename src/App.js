@@ -84,7 +84,7 @@ function App() {
         duration: 1000,
         isClosable: true,
         position: "top",
-        variant: "subtle"
+        variant: "solid"
       });
     };
 
@@ -194,7 +194,7 @@ function App() {
       });
 
       setCourses(newCourses);
-      showToast("Synced Data", "Changes were made in the course data. Your data is synced. Look for any erros though", "success");
+      showToast("Synced Data", "Changes were made in the course data. Your data is synced. Look for any errors though", "success");
     }
     else
     {

@@ -63,7 +63,6 @@ export function AllCourses({courses, onAdd})
                         setSortBy={setSortBy}
                 />
         </Flex>
-        
         <Table variant="simple" >
             <Thead>
                 <Tr>

@@ -96,7 +96,7 @@ export function MyCourse({course, onRemove, onChangeGrade, showActivity, onUpdat
             </ModalContent>
         </Modal>
 
-        <Tr key={course.code} _hover={{ bg: "blue.100", cursor: "pointer" } } onClick={onOpen}>
+        <Tr key={course.code} _hover={{ bg: "blue.300", cursor: "pointer" } } onClick={onOpen}>
             <Td fontSize={['xs', 'xs', 'lg']}  px={0.25}>
                 <Icon as={ChevronRightIcon} />
                 {course.name}

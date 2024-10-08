@@ -6,7 +6,7 @@ export function Course({course, onAdd})
     {
         onAdd(course);
     }
-    return (<Tr key={course.code} _hover={{ bg: "green.100", cursor: "pointer" } } onClick={onClickButton}>
+    return (<Tr key={course.code} _hover={{ bg: "green.300", cursor: "pointer" } } onClick={onClickButton}>
         <Td  fontSize={['xs', 'xs', 'lg']}  px={0.25}>
             <Icon as={ChevronRightIcon} />
             {course.name}
