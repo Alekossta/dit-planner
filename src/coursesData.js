@@ -663,7 +663,7 @@ export const coursesData = [
     semester: "6"
   },
   {
-    name: "Αλγόριθμοι Θεμελιώσεις Μηχανικής Μάθησης",
+    name: "Αλγόριθμοι - Θεμελιώσεις Μηχανικής Μάθησης",
     code: "ΘΠ22",
     ECTS: "6",
     category: "ΠΜ",
@@ -672,7 +672,8 @@ export const coursesData = [
     s3: "",
     s4: "",
     s5: "",
-    s6: ""
+    s6: "",
+    semester: "6"
   },
   {
     name: "Τεχνολογίες Εφαρμογών Διαδικτύου",
