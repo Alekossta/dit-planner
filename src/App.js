@@ -95,7 +95,7 @@ const mergeSavedCourseState = (course, savedCourse) => {
 
 // merge a user's saved course state (grades, passed/planned, custom MC courses)
 // into a fresh copy of the latest bundled course catalog
-const mergeIntoCourseData = (savedList) => {
+export const mergeIntoCourseData = (savedList) => {
   const savedCourses = normalizeCourses(savedList);
   // deep copy so we never mutate the imported coursesData module
   let newCourses = normalizeCourses(coursesData.map(course => ({ ...course })));
@@ -160,8 +160,12 @@ function App() {
             }
             else
             {
-              // normal load (fall back to defaults if the courses key is missing)
-              setCourses(normalizeCourses(parsedSavedCourses || coursesData));
+              // Always reconcile saved progress with the bundled catalog. This
+              // keeps additions and catalog fixes visible even if a release
+              // accidentally ships without incrementing coursesDataVersion.
+              setCourses(parsedSavedCourses
+                ? mergeIntoCourseData(parsedSavedCourses)
+                : normalizeCourses(coursesData));
             }
           }
           setFirstLoad(false);
