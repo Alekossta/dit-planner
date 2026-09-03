@@ -142,7 +142,8 @@ export function Settings({ onResetData, onImportData, onExportData, onExportPass
                             <Text fontSize='sm' color='gray.400' mt={1}>
                                 Contributors:{' '}
                                 <Link href='https://github.com/matinanadali' isExternal color={"blue.400"}>matinanadali</Link>
-                                {', '}DanielPikilidis{', '}vaghred
+                                {', '}DanielPikilidis{', '}vaghred{', '}
+                                <Link href='https://github.com/EncodedMind' isExternal color={"blue.400"}>Dimitris</Link>
                             </Text>
                             <Text fontSize='sm' color='gray.400' mt={1}>
                                 Contribute in <Link href='https://github.com/alex-stavrin/dit-planner' color={"blue.400"} isExternal>Github</Link>
